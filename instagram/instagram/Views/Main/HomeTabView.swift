@@ -9,7 +9,33 @@ import SwiftUI
 
 struct HomeTabView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            TabView {
+                FeedView()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                    }
+                SearchView()
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                    }
+                UploadView()
+                    .tabItem {
+                        Image(systemName: "plus.app.fill")
+                    }
+                NotificationsView()
+                    .tabItem {
+                        Image(systemName: "suit.heart")
+                    }
+                ProfileView()
+                    .tabItem {
+                        Image(systemName: "person")
+                    }
+            }
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.inline)
+            .accentColor(.black)
+        }
     }
 }
 
