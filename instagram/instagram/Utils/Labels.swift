@@ -13,7 +13,9 @@ enum LabelType: String, CaseIterable {
     case unlike = "heart"
     case comment = "bubble.right"
     case share = "paperplane"
+    
     case verified = "checkmark.seal.fill"
+    case search = "magnifyingglass"
 }
 
 enum LabelErrors: Error {
@@ -31,6 +33,8 @@ struct Labels {
     static let share: some View = image(for: .share)
     static let verified: some View = image(for: .verified)
     static let verifiedBlue: some View = verified.foregroundColor(.blue)
+    
+    static let search: some View = image(for: .search)
     
     static func image(for label: LabelType) -> some View {
         Image(systemName: label.rawValue)
@@ -55,11 +59,21 @@ struct Labels {
             .frame(width: screen.width / 8, height: screen.width / 8)
     }
     
-    static func postContentLabel(for post: Post) -> some View {
-        Image(post.image)
+    static func imageLabel(for name: String) -> some View {
+        Image(name)
             .resizable()
             .scaledToFill()
-            .frame(maxWidth: screen.width)
             .clipped()
+    }
+    
+    static func postContentLabel(for post: Post) -> some View {
+        imageLabel(for: post.image)
+            .frame(maxWidth: screen.width)
+    }
+    
+    static func postGridLabel(for post: Post, withScaling scaling: CGFloat) -> some View {
+        let width = min(screen.width, screen.height)
+        return imageLabel(for: post.image)
+            .frame(width: width / scaling, height: width / scaling)
     }
 }

@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State private var searchText: String = ""
     var body: some View {
-        Image(systemName: "magnifyingglass").font(.largeTitle.weight(.thin))
+        ScrollView {
+            // Search Bar
+            SearchBar(text: $searchText)
+                .padding()
+            
+            
+            // Grid View with Results Display
+            PostGridView()
+            
+            
+            // User List view
+            
+            
+        }
     }
 }
 
