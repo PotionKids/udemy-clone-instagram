@@ -15,8 +15,9 @@ struct UserCell: View {
             Button {
                 //
             } label: {
-                
+                Labels.userCellLabel(for: user)
             }
+            .buttonStyle(PlainButtonStyle())
 
             VStack {
                 // username

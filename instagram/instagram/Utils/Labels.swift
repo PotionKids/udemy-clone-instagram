@@ -34,19 +34,30 @@ struct Labels {
     static let verified: some View = image(for: .verified)
     static let verifiedBlue: some View = verified.foregroundColor(.blue)
     
+    static let userNameLabelFont: Font = Font.headline.weight(.medium)
+    
     static let search: some View = image(for: .search)
     
     static func image(for label: LabelType) -> some View {
         Image(systemName: label.rawValue)
     }
     
+    static func userNameLabel(for user: User) -> some View {
+        HStack {
+            Text(user.name).font(userNameLabelFont)
+            if user.isVerified { Labels.verifiedBlue }
+        }
+    }
+    
+    static func userFullNameLabel(for user: User) -> some View {
+        Text(user.fullname)
+    }
+    
     static func posterLabel(for user: User) -> some View {
         HStack(alignment: .center, spacing: screen.width / 50) {
             posterProfilePic(for: user)
-            Text(user.name)
-                .font(.headline.weight(.medium))
-            Labels.verifiedBlue
-            Text("44m")
+            userNameLabel(for: user)
+            Text("44*m*").font(.body.weight(.thin))
             Spacer()
         }
     }
@@ -65,8 +76,19 @@ struct Labels {
         profilePic(for: user, withScaling: 8)
     }
     
+    static func userCellLabel(for user: User) -> some View {
+        HStack {
+            userCellProfilePic(for: user)
+            VStack(alignment: .leading, spacing: screen.minDim / 75) {
+                userNameLabel(for: user)
+                userFullNameLabel(for: user)
+            }
+            Spacer()
+        }
+    }
+    
     static func userCellProfilePic(for user: User) -> some View {
-        profilePic(for: user, withScaling: 10)
+        profilePic(for: user, withScaling: 8)
     }
     
     static func imageLabel(for name: String) -> some View {

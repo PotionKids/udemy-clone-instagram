@@ -13,9 +13,14 @@ struct User: Identifiable {
     var first = ""
     var last = ""
     var image = ""
+    var isVerified = false
+    
+    var fullname: String {
+        first + " " + last
+    }
 }
 
 struct Users {
-    static let therock = User(name: "therock", image: "TR Profile Pic")
-    static let obama = User(name: "barackobama", image: "BO Profile Pic")
+    static let therock = User(name: "therock", first: "Dwayne", last: "Johnson", image: "TR Profile Pic", isVerified: true)
+    static let obama = User(name: "barackobama", first: "Barack", last: "Obama", image: "BO Profile Pic", isVerified: true)
 }

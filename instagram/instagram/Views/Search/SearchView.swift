@@ -17,11 +17,11 @@ struct SearchView: View {
             
             
             // Grid View with Results Display
-            PostGridView()
+//            PostGridView()
             
             
             // User List view
-            
+            UserListView()
             
         }
     }

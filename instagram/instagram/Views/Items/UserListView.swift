@@ -10,9 +10,10 @@ import SwiftUI
 struct UserListView: View {
     var body: some View {
         ScrollView {
-            LazyVStack {
+            LazyVStack(spacing: screen.minDim / 30) {
                 ForEach(0..<10) { _ in
                     UserCell(user: Users.obama)
+                        .padding(.horizontal)
                 }
             }
         }
