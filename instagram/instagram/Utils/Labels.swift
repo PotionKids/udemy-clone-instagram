@@ -42,7 +42,7 @@ struct Labels {
     
     static func posterLabel(for user: User) -> some View {
         HStack(alignment: .center, spacing: screen.width / 50) {
-            Labels.posterProfilePic(for: user)
+            posterProfilePic(for: user)
             Text(user.name)
                 .font(.headline.weight(.medium))
             Labels.verifiedBlue
@@ -52,7 +52,7 @@ struct Labels {
     }
     
     static func profilePic(for user: User, withScaling scaling: CGFloat) -> some View {
-        Image(user.name)
+        Image(user.image)
             .resizable()
             .scaledToFit()
             .clipShape(Circle())

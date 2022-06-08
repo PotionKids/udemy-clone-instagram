@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FeedCell: View {
     var post: Post
+    @State private var liked: Bool = false
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -17,7 +18,7 @@ struct FeedCell: View {
                 Labels.postContentLabel(for: post)
                 HStack(spacing: screen.width / 20) {
                     Button {
-                        //
+                        liked = true
                     } label: {
                         Labels.unlike
                     }

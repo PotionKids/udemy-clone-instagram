@@ -10,12 +10,12 @@ import Foundation
 struct User: Identifiable {
     var id = UUID().uuidString
     var name = ""
-    var firstName = ""
-    var lastName = ""
-    var profilePicFileName = ""
+    var first = ""
+    var last = ""
+    var image = ""
 }
 
 struct Users {
-    static let therock = User(name: "therock", profilePicFileName: "TR Profile Pic")
-    static let obama = User(name: "barackobama", profilePicFileName: "BO Profile Pic")
+    static let therock = User(name: "therock", image: "TR Profile Pic")
+    static let obama = User(name: "barackobama", image: "BO Profile Pic")
 }
