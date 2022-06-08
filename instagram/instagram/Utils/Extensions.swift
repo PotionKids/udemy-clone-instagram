@@ -19,3 +19,9 @@ extension View {
         screen.height
     }
 }
+
+extension CGRect {
+    var minDim: CGFloat {
+        min(width, height)
+    }
+}

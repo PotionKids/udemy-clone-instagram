@@ -51,12 +51,20 @@ struct Labels {
         }
     }
     
-    static func posterProfilePic(for user: User) -> some View {
-        Image(user.profilePicFileName)
+    static func profilePic(for user: User, withScaling scaling: CGFloat) -> some View {
+        Image(user.name)
             .resizable()
             .scaledToFit()
             .clipShape(Circle())
-            .frame(width: screen.width / 8, height: screen.width / 8)
+            .frame(width: screen.minDim / scaling, height: screen.minDim / scaling)
+    }
+    
+    static func posterProfilePic(for user: User) -> some View {
+        profilePic(for: user, withScaling: 8)
+    }
+    
+    static func userCellProfilePic(for user: User) -> some View {
+        profilePic(for: user, withScaling: 10)
     }
     
     static func imageLabel(for name: String) -> some View {
