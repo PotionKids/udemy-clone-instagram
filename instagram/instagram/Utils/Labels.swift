@@ -51,6 +51,7 @@ struct Labels {
         }
     }
     
+    
     static func profilePic(for user: User, withScaling scaling: CGFloat) -> some View {
         Image(user.image)
             .resizable()
