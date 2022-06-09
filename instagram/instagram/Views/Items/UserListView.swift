@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct UserListView: View {
+    var users: [User] = Users.all
     var body: some View {
         LazyVStack(spacing: screen.minDim / 30) {
-            ForEach(0..<10) { _ in
+            ForEach(users) { user in
                 NavigationLink {
                     FeedView()
                 } label: {
-                    UserCell(user: Users.obama)
+                    UserCell(user: user)
                         .padding(.horizontal)
                 }
                 .navigationBarTitleDisplayMode(.inline)

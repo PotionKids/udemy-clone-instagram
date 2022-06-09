@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct FeedView: View {
+    var users = Users.all
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(0..<15) {_ in
-                    FeedCell(post: Posts.rockPost5)
+                ForEach(users.shuffled()) { user in
+                    ForEach(user.posts.shuffled()) { post in
+                            FeedCell(user: user, post: post)
+                    }
                 }
             }
-//            .padding(.top)
         }
     }
 }

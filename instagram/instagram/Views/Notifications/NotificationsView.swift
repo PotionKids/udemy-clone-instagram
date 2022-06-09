@@ -9,7 +9,14 @@ import SwiftUI
 
 struct NotificationsView: View {
     var body: some View {
-        Image(systemName: "heart").font(.largeTitle.weight(.thin))
+        ScrollView {
+            LazyVStack {
+                ForEach(Users.all) { user in
+                    NotificationCell(user: user, post: user.posts[0], isFollowed: true)
+                }
+            }
+            .padding(.vertical)
+        }
     }
 }
 

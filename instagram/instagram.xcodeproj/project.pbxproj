@@ -23,6 +23,13 @@
 		EEC86B0F2851FA3300F46820 /* NetflixSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0C2851FA3300F46820 /* NetflixSansLight.otf */; };
 		EEC86B102851FA3300F46820 /* NetflixSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */; };
 		EEC86B112851FA3300F46820 /* NetflixSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */; };
+		EEC86B14285220D800F46820 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC86B13285220D800F46820 /* NotificationCell.swift */; };
+		EEC86B182852988700F46820 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC86B172852988700F46820 /* Constants.swift */; };
+		EEC86B1A2852A70E00F46820 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC86B192852A70E00F46820 /* ViewModifiers.swift */; };
+		EEC86B1C2852B52400F46820 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC86B1B2852B52400F46820 /* StoryView.swift */; };
+		EEC86B1E2852B54200F46820 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC86B1D2852B54200F46820 /* ProfileHeader.swift */; };
+		EEC86B202852B57C00F46820 /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC86B1F2852B57C00F46820 /* UserStatView.swift */; };
+		EEC86B222852B6B400F46820 /* ProfileButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC86B212852B6B400F46820 /* ProfileButtons.swift */; };
 		EEE87A67284F69BD0043F019 /* instagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE87A66284F69BD0043F019 /* instagramApp.swift */; };
 		EEE87A69284F69BD0043F019 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE87A68284F69BD0043F019 /* ContentView.swift */; };
 		EEE87A6B284F69BF0043F019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE87A6A284F69BF0043F019 /* Assets.xcassets */; };
@@ -49,6 +56,13 @@
 		EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansMedium.otf; sourceTree = "<group>"; };
 		EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansBold.otf; sourceTree = "<group>"; };
 		EEC86B122851FA9600F46820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EEC86B13285220D800F46820 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		EEC86B172852988700F46820 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EEC86B192852A70E00F46820 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		EEC86B1B2852B52400F46820 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		EEC86B1D2852B54200F46820 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		EEC86B1F2852B57C00F46820 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
+		EEC86B212852B6B400F46820 /* ProfileButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtons.swift; sourceTree = "<group>"; };
 		EEE87A63284F69BD0043F019 /* instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE87A66284F69BD0043F019 /* instagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instagramApp.swift; sourceTree = "<group>"; };
 		EEE87A68284F69BD0043F019 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -168,6 +182,8 @@
 			children = (
 				EE99C0BF284FB37700426F6C /* Extensions.swift */,
 				EE99C0C1284FC1AF00426F6C /* Labels.swift */,
+				EEC86B172852988700F46820 /* Constants.swift */,
+				EEC86B192852A70E00F46820 /* ViewModifiers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -193,6 +209,10 @@
 			isa = PBXGroup;
 			children = (
 				EE99C0B9284F6EE600426F6C /* ProfileView.swift */,
+				EEC86B1B2852B52400F46820 /* StoryView.swift */,
+				EEC86B1D2852B54200F46820 /* ProfileHeader.swift */,
+				EEC86B1F2852B57C00F46820 /* UserStatView.swift */,
+				EEC86B212852B6B400F46820 /* ProfileButtons.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -226,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				EE99C0B7284F6ECC00426F6C /* NotificationsView.swift */,
+				EEC86B13285220D800F46820 /* NotificationCell.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -349,18 +370,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE99C0CE28500FAB00426F6C /* UserListView.swift in Sources */,
+				EEC86B182852988700F46820 /* Constants.swift in Sources */,
 				EE99C0B6284F6EB500426F6C /* SearchView.swift in Sources */,
+				EEC86B1C2852B52400F46820 /* StoryView.swift in Sources */,
 				EEE87A89284F6DD40043F019 /* FeedView.swift in Sources */,
 				EEE87A87284F6CF50043F019 /* HomeTabView.swift in Sources */,
 				EE99C0C2284FC1AF00426F6C /* Labels.swift in Sources */,
+				EEC86B222852B6B400F46820 /* ProfileButtons.swift in Sources */,
 				EE99C0C6284FC73B00426F6C /* Post.swift in Sources */,
 				EE99C0BC284F6F0100426F6C /* UploadView.swift in Sources */,
 				EEE87A69284F69BD0043F019 /* ContentView.swift in Sources */,
+				EEC86B1E2852B54200F46820 /* ProfileHeader.swift in Sources */,
 				EE99C0C8285003DD00426F6C /* SearchBar.swift in Sources */,
 				EE99C0CC28500F8C00426F6C /* UserCell.swift in Sources */,
+				EEC86B14285220D800F46820 /* NotificationCell.swift in Sources */,
 				EE99C0CA28500C1700426F6C /* PostGridView.swift in Sources */,
 				EE99C0C0284FB37700426F6C /* Extensions.swift in Sources */,
 				EEE87A67284F69BD0043F019 /* instagramApp.swift in Sources */,
+				EEC86B1A2852A70E00F46820 /* ViewModifiers.swift in Sources */,
+				EEC86B202852B57C00F46820 /* UserStatView.swift in Sources */,
 				EE99C0C4284FC4FD00426F6C /* User.swift in Sources */,
 				EE99C0BA284F6EE600426F6C /* ProfileView.swift in Sources */,
 				EE99C0B8284F6ECC00426F6C /* NotificationsView.swift in Sources */,
