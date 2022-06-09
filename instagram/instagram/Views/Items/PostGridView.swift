@@ -13,7 +13,12 @@ struct PostGridView: View {
     var body: some View {
         LazyVGrid(columns: items, spacing: screenWidth / 200) {
             ForEach(0..<8) {_ in
-                Labels.postGridLabel(for: Posts.rockPost8a, withScaling: 3)
+                NavigationLink {
+                    FeedView()
+                } label: {
+                    Labels.postGridLabel(for: Posts.rockPost8a, withScaling: 3)
+                }
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

@@ -20,6 +20,9 @@
 		EE99C0CA28500C1700426F6C /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0C928500C1700426F6C /* PostGridView.swift */; };
 		EE99C0CC28500F8C00426F6C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0CB28500F8C00426F6C /* UserCell.swift */; };
 		EE99C0CE28500FAB00426F6C /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0CD28500FAB00426F6C /* UserListView.swift */; };
+		EEC86B0F2851FA3300F46820 /* NetflixSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0C2851FA3300F46820 /* NetflixSansLight.otf */; };
+		EEC86B102851FA3300F46820 /* NetflixSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */; };
+		EEC86B112851FA3300F46820 /* NetflixSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */; };
 		EEE87A67284F69BD0043F019 /* instagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE87A66284F69BD0043F019 /* instagramApp.swift */; };
 		EEE87A69284F69BD0043F019 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE87A68284F69BD0043F019 /* ContentView.swift */; };
 		EEE87A6B284F69BF0043F019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE87A6A284F69BF0043F019 /* Assets.xcassets */; };
@@ -42,6 +45,10 @@
 		EE99C0C928500C1700426F6C /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
 		EE99C0CB28500F8C00426F6C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		EE99C0CD28500FAB00426F6C /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		EEC86B0C2851FA3300F46820 /* NetflixSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansLight.otf; sourceTree = "<group>"; };
+		EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansMedium.otf; sourceTree = "<group>"; };
+		EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansBold.otf; sourceTree = "<group>"; };
+		EEC86B122851FA9600F46820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EEE87A63284F69BD0043F019 /* instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE87A66284F69BD0043F019 /* instagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instagramApp.swift; sourceTree = "<group>"; };
 		EEE87A68284F69BD0043F019 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,9 +69,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EEC86B0B2851FA1B00F46820 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */,
+				EEC86B0C2851FA3300F46820 /* NetflixSansLight.otf */,
+				EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		EEE87A5A284F69BD0043F019 = {
 			isa = PBXGroup;
 			children = (
+				EEC86B0B2851FA1B00F46820 /* Fonts */,
 				EEE87A65284F69BD0043F019 /* instagram */,
 				EEE87A64284F69BD0043F019 /* Products */,
 			);
@@ -81,6 +99,7 @@
 		EEE87A65284F69BD0043F019 /* instagram */ = {
 			isa = PBXGroup;
 			children = (
+				EEC86B122851FA9600F46820 /* Info.plist */,
 				EEE87A74284F6B7C0043F019 /* Models */,
 				EEE87A75284F6B870043F019 /* Views */,
 				EEE87A76284F6B8E0043F019 /* ViewModels */,
@@ -315,7 +334,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE87A6E284F69BF0043F019 /* Preview Assets.xcassets in Resources */,
+				EEC86B0F2851FA3300F46820 /* NetflixSansLight.otf in Resources */,
+				EEC86B102851FA3300F46820 /* NetflixSansMedium.otf in Resources */,
 				EEE87A6B284F69BF0043F019 /* Assets.xcassets in Resources */,
+				EEC86B112851FA3300F46820 /* NetflixSansBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +496,7 @@
 				DEVELOPMENT_TEAM = R5955V6BN9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = instagram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -503,6 +526,7 @@
 				DEVELOPMENT_TEAM = R5955V6BN9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = instagram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

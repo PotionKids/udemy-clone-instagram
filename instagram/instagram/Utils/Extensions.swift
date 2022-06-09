@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import UIKit
 
 extension View {
     var screen: CGRect {
@@ -25,3 +26,11 @@ extension CGRect {
         min(width, height)
     }
 }
+
+//#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+//#endif

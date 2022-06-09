@@ -85,6 +85,7 @@ struct Labels {
             }
             Spacer()
         }
+        .foregroundColor(.black)
     }
     
     static func userCellProfilePic(for user: User) -> some View {

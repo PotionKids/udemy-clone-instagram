@@ -9,20 +9,22 @@ import SwiftUI
 
 struct SearchView: View {
     @State private var searchText: String = ""
+    @State private var inSearchMode: Bool = false
+    
     var body: some View {
-        ScrollView {
-            // Search Bar
-            SearchBar(text: $searchText)
-                .padding()
-            
-            
-            // Grid View with Results Display
-//            PostGridView()
-            
-            
-            // User List view
-            UserListView()
-            
+        NavigationView {
+            ScrollView {
+                VStack {
+                    SearchBar(text: $searchText, isEditing: $inSearchMode)
+                        .padding()
+                    if inSearchMode {
+                        UserListView()
+                    }
+                    else {
+                        PostGridView()
+                    }
+                }
+            }
         }
     }
 }

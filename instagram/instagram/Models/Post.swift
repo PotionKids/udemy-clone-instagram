@@ -54,8 +54,8 @@ struct Posts {
 
                                     """
                                )
-    static let rockPost8a = Post(poster: Users.therock, image: "TR Post 8a")
-    static let rockPost8b = Post(poster: Users.therock, image: "TR Post 8b")
-    static let rockPost8c = Post(poster: Users.therock, image: "TR Post 8c")
-    static let rockPost9 = Post(poster: Users.therock, image: "TR Post 9")
+    static let rockPost8a = Post(poster: Users.therock, image: "TR Post 8a", description: "")
+    static let rockPost8b = Post(poster: Users.therock, image: "TR Post 8b", description: "")
+    static let rockPost8c = Post(poster: Users.therock, image: "TR Post 8c", description: "")
+    static let rockPost9 = Post(poster: Users.therock, image: "TR Post 9", description: "")
 }

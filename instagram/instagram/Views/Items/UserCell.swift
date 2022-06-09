@@ -11,19 +11,7 @@ struct UserCell: View {
     var user: User
     var body: some View {
         HStack {
-            // Profile Pic
-            Button {
-                //
-            } label: {
                 Labels.userCellLabel(for: user)
-            }
-            .buttonStyle(PlainButtonStyle())
-
-            VStack {
-                // username
-                // full name
-                
-            }
         }
     }
 }
