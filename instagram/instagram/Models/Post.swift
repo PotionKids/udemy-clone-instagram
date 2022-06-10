@@ -14,6 +14,7 @@ struct Post: Identifiable {
     var image: String
     var isLiked: Bool = true
     var description: String = ""
+    var storyName: String? = "Goodles"
 }
 
 struct Posts {
@@ -126,6 +127,9 @@ struct Posts {
     static let galGadotPost1 = Post(image: "GG Post 1", description: "")
     static let galGadotPost2 = Post(image: "GG Post 2", description: "")
     static let galGadotPost3 = Post(image: "GG Post 3", description: "")
+    static let galGadotStory1 = Post(image: "GG Story Goodles", storyName: "Goodles")
+    static let galGadotStory2 = Post(image: "GG Story Red Notice", storyName: "Red Notice")
+    static let galGadotStory3 = Post(image: "GG Story Wonder Woman", storyName: "Wonder Woman")
     
     static let blakeLivelyPost1 = Post(image: "BL Post 1", description: """
                                     Let’s take it back to the “night before” party. A little hint of things to come🗽 thanks to @thombrowne Yes I took these on a self timer bc everyone was asleep when I got home at 9. Sorry outfit. You deserved better.

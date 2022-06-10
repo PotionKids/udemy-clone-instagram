@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct StoryView: View {
-    var storyThumbnail = "GG Post 1"
+    var post = Posts.galGadotStory2
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Labels.profileStoryThumbnail(for: post)
+            Text(post.storyName ?? "")
+                .font(.subheadline.weight(.light))
+        }
     }
 }
 

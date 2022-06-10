@@ -15,6 +15,7 @@ class User: Identifiable {
     var image = ""
     var isVerified = true
     var posts: [Post] = []
+    var stories: [Post] = [Posts.galGadotStory1, Posts.galGadotStory2, Posts.galGadotStory3]
     var followers = "82M"
     var followedBy = "Followed by **therock** and **275 others**"
     var following = "347"

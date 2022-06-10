@@ -12,14 +12,23 @@ struct ProfileView: View {
     var isCurrentUser = false
     @State private var isFollowedByCurrentUser = false
     var body: some View {
-        VStack(alignment: .leading) {
-            ProfileHeader(user: user)
-            userFullName(for: user)
-            bio(for: user)
-            followedBy(user: user)
-            ProfileButtons(isFollowedByCurrentUser: $isFollowedByCurrentUser)
+        ScrollView {
+            VStack {
+                VStack(alignment: .leading) {
+                    ProfileHeader(user: user)
+                    userFullName(for: user)
+                    bio(for: user)
+                    followedBy(user: user)
+                    ProfileButtons(isFollowedByCurrentUser: $isFollowedByCurrentUser)
+                    Stories(user: user)
+                }
+                .padding(.all)
+                DisplayButtons()
+                PostGridView(posts: user.posts)
+                    .offset(y: 30)
+                Spacer()
+            }
         }
-        .padding(.horizontal)
     }
     
     func followedBy(user: User) -> some View {

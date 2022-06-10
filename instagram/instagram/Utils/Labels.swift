@@ -185,4 +185,18 @@ struct Labels {
             }
         }
     }
+    
+    static func profileStoryThumbnail(for post: Post) -> some View {
+        ZStack(alignment: .center) {
+            Image(post.image)
+                .resizable()
+                .scaledToFill()
+                .clipShape(Circle())
+                .frame(width: screen.width / 6, height: screen.width / 6, alignment: .center)
+            Circle()
+                .strokeBorder(lineWidth: 1)
+                .frame(width: screen.width / 5.5, height: screen.width / 5.5, alignment: .center)
+                .foregroundColor(.gray.opacity(0.6))
+        }
+    }
 }
