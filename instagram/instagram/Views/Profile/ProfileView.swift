@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     var user = Users.galGadot
-    var isCurrentUser = false
+    @State private var isCurrentUser = true
     @State private var isFollowedByCurrentUser = false
     var body: some View {
         ScrollView {
@@ -19,13 +19,15 @@ struct ProfileView: View {
                     userFullName(for: user)
                     bio(for: user)
                     followedBy(user: user)
-                    ProfileButtons(isFollowedByCurrentUser: $isFollowedByCurrentUser)
+                    ProfileButtons(isFollowedByCurrentUser: $isFollowedByCurrentUser, isCurrentUser: $isCurrentUser)
                     Stories(user: user)
                 }
-                .padding(.all)
+                .padding(.horizontal, screen.minDim / 30)
+                .padding(.vertical, screen.minDim / 50)
                 DisplayButtons()
                 PostGridView(posts: user.posts)
                     .offset(y: 30)
+                    .frame(maxWidth: screen.width)
                 Spacer()
             }
         }
@@ -44,6 +46,8 @@ struct ProfileView: View {
             Spacer()
         }
     }
+    
+    
 }
 
 struct ProfileView_Previews: PreviewProvider {

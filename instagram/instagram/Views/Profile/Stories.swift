@@ -18,6 +18,7 @@ struct Stories: View {
             }
         }
         .frame(maxWidth: screen.width, maxHeight: screen.minDim / 3.5)
+        .profileBottomPaddify()
     }
 }
 

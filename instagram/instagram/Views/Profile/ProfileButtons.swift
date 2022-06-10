@@ -9,17 +9,25 @@ import SwiftUI
 
 struct ProfileButtons: View {
     @Binding var isFollowedByCurrentUser: Bool
-    
+    @Binding var isCurrentUser: Bool
     var body: some View {
         HStack {
-            if isFollowedByCurrentUser {
-                followingButton.background(.white)
-            } else {
-                followButton
+            if isCurrentUser {
+                Labels.profileEditButtonLabel
             }
-            Spacer()
-            Labels.profileMessageButtonLabel
+            else {
+                HStack {
+                    if isFollowedByCurrentUser {
+                        followingButton.background(.white)
+                    } else {
+                        followButton
+                    }
+                    Spacer()
+                    Labels.profileMessageButtonLabel
+                }
+            }
         }
+        .profileBottomPaddify()
     }
     
     var followingButton: some View {
@@ -42,6 +50,6 @@ struct ProfileButtons: View {
 
 struct ProfileButtons_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileButtons(isFollowedByCurrentUser: .constant(true))
+        ProfileButtons(isFollowedByCurrentUser: .constant(true), isCurrentUser: .constant(false))
     }
 }

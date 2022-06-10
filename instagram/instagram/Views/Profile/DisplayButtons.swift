@@ -12,21 +12,26 @@ struct DisplayButtons: View {
         HStack {
             Image(systemName: "squareshape.split.3x3")
                 .padding(.horizontal, screen.minDim / 10)
+                .frame(width: screen.minDim / 4)
             Spacer()
             Image(systemName: "play.rectangle.on.rectangle")
                 .padding(.horizontal)
                 .foregroundColor(.gray)
+                .frame(width: screen.minDim / 4)
             Spacer()
             Image(systemName: "triangle")
                 .rotation3DEffect(Angle.degrees(90), axis: (x: 0, y: 0, z: 1))
                 .padding(.horizontal)
                 .foregroundColor(.gray)
+                .frame(width: screen.minDim / 4)
             Spacer()
             Image(systemName: "person.crop.square")
                 .padding(.horizontal)
                 .foregroundColor(.gray)
+                .frame(width: screen.minDim / 4)
         }
         .font(.title2.weight(.regular))
+        .frame(maxWidth: screen.width)
     }
 }
 

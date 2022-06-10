@@ -14,14 +14,16 @@ struct PostGridView: View {
     private let items = [GridItem(), GridItem(), GridItem()]
     
     var body: some View {
-        LazyVGrid(columns: items, spacing: screen.minDim / 20) {
-            ForEach(posts) { post in
-                NavigationLink {
-                    FeedView()
-                } label: {
-                    Labels.postGridLabel(for: post, withScaling: 3)
+        ScrollView {
+            LazyVGrid(columns: items, spacing: screen.minDim / 250) {
+                ForEach(posts) { post in
+                    NavigationLink {
+                        FeedView()
+                    } label: {
+                        Labels.postGridLabel(for: post, withScaling: 3)
+                    }
+                    .navigationBarTitleDisplayMode(.inline)
                 }
-                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

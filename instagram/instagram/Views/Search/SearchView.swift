@@ -14,7 +14,7 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
+                LazyVStack {
                     SearchBar(text: $searchText, isEditing: $inSearchMode)
                         .padding()
                     if inSearchMode {

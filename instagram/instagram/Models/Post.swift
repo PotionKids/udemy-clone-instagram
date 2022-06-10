@@ -10,6 +10,7 @@ import Foundation
 struct Post: Identifiable {
     var id = UUID().uuidString
 //    var poster: User.ID = Users.therock.id
+//    var poster: String = Users.therock.id
     var time: Date = Date.now
     var image: String
     var isLiked: Bool = true

@@ -15,39 +15,32 @@ struct SearchBar: View {
         ZStack {
             HStack {
                 TextField("Search...", text: $text)
-                    .padding(screen.width / 50)
-                    .padding(.horizontal, screen.width / 16)
-                    .background(Color(.systemGray5))
-                    .cornerRadius(screen.width / 50)
-                    .overlay {
-                        HStack {
-                            Labels.search
-                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading, screen.width / 50)
-                                .opacity(0.2)
-                        }
-                    }
+                    .searchBarify()
                     .onTapGesture {
                         isEditing = true
                     }
             }
             if isEditing {
-                HStack {
-                    Spacer()
-                    Button {
-                        isEditing = false
-                        text = ""
-                        hideKeyboard()
-                    } label: {
-                        Text("Cancel")
-                    }
-                }
-                .foregroundColor(.black)
-                .padding(.horizontal)
-                .transition(.move(edge: .trailing))
-                .animation(.default)
+                cancelButton(modifying: isEditing)
+                    .transition(.move(edge: .trailing))
+                    .animation(.default)
             }
         }
+    }
+    
+    func cancelButton(modifying: Bool) -> some View {
+        HStack {
+            Spacer()
+            Button {
+                isEditing = false
+                text = ""
+                hideKeyboard()
+            } label: {
+                Text("Cancel")
+            }
+        }
+        .foregroundColor(.black)
+        .padding(.horizontal)
     }
 }
 

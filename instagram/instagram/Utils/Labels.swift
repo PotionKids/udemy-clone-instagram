@@ -35,11 +35,8 @@ struct Labels {
     static let verified: some View = image(for: .verified)
     static let verifiedBlue: some View = image(for: .verified, with: .blue)
     
-    //    static let userNameLabelFont: Font = Font.headline.weight(.semibold)
     static let userNameLabelFont: Font = Font.headline.weight(.semibold)
-    
     static let search: some View = image(for: .search)
-    
     static let profileFollowButtonLabel: some View = Text("Follow")
                                                         .profileHalfButtonify()
                                                         .blueButtonify()
@@ -54,7 +51,12 @@ struct Labels {
     static let profileMessageButtonLabel: some View = Text("Message")
                                                         .profileHalfButtonify()
                                                         .blackAndWhiteButtonify()
+    
+    static let profileEditButtonLabel: some View = Text("Edit Profile")
+                                                        .profileFullButtonify()
+                                                        .blackAndWhiteButtonify()
 
+    
     
     
     static func image(for label: LabelType) -> some View {
@@ -140,9 +142,13 @@ struct Labels {
     
     static func imageLabel(for name: String) -> some View {
         Image(name)
-            .resizable()
-            .scaledToFill()
-            .clipped()
+            .fitToAspectRatio(1)
+    }
+    
+    static func gridImageLabel(for name: String) -> some View {
+        Image(name)
+            .fitToAspectRatio(1)
+            .padding(.all, Constants.screen.minDim / 200)
     }
     
     static func postContentLabel(for post: Post) -> some View {
@@ -152,7 +158,7 @@ struct Labels {
     
     static func postGridLabel(for post: Post, withScaling scaling: CGFloat) -> some View {
         let width = min(screen.width, screen.height)
-        return imageLabel(for: post.image)
+        return gridImageLabel(for: post.image)
             .frame(width: width / scaling, height: width / scaling)
     }
     
@@ -192,10 +198,10 @@ struct Labels {
                 .resizable()
                 .scaledToFill()
                 .clipShape(Circle())
-                .frame(width: screen.width / 6, height: screen.width / 6, alignment: .center)
+                .frame(width: Constants.screen.width / 6, height: Constants.screen.width / 6, alignment: .center)
             Circle()
                 .strokeBorder(lineWidth: 1)
-                .frame(width: screen.width / 5.5, height: screen.width / 5.5, alignment: .center)
+                .frame(width: Constants.screen.width / 5.5, height: Constants.screen.width / 5.5, alignment: .center)
                 .foregroundColor(.gray.opacity(0.6))
         }
     }
