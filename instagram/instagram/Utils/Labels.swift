@@ -145,10 +145,11 @@ struct Labels {
             .fitToAspectRatio(1)
     }
     
-    static func gridImageLabel(for name: String) -> some View {
+    static func squareImageLabel(for name: String, withScaling scaling: CGFloat) -> some View {
         Image(name)
             .fitToAspectRatio(1)
             .padding(.all, Constants.screen.minDim / 200)
+            .scale(by: scaling)
     }
     
     static func postContentLabel(for post: Post) -> some View {
@@ -157,9 +158,7 @@ struct Labels {
     }
     
     static func postGridLabel(for post: Post, withScaling scaling: CGFloat) -> some View {
-        let width = min(screen.width, screen.height)
-        return gridImageLabel(for: post.image)
-            .frame(width: width / scaling, height: width / scaling)
+        return squareImageLabel(for: post.image, withScaling: 3)
     }
     
     static func followButtonLabel(if isFollowed: Bool) -> some View {
@@ -175,7 +174,7 @@ struct Labels {
     
     static func notificationPostImage(for post: Post) -> some View {
         imageLabel(for: post.image)
-            .frame(width: screen.minDim / 10, height: screen.minDim / 10)
+            .scale(by: 10)
     }
     
     static func profileImage(for user: User, hasStory: Bool = true) -> some View {
@@ -187,7 +186,7 @@ struct Labels {
                         AngularGradient(gradient: Gradient(colors: Constants.instaColorsGradient), center: .center, startAngle: .zero, endAngle: .degrees(360)),
                         lineWidth: screen.minDim / 130
                     )
-                    .frame(width: screen.minDim / 3.85, height: screen.minDim / 3.85)
+                    .scale(by: 3.85)
             }
         }
     }
@@ -198,7 +197,7 @@ struct Labels {
                 .resizable()
                 .scaledToFill()
                 .clipShape(Circle())
-                .frame(width: Constants.screen.width / 6, height: Constants.screen.width / 6, alignment: .center)
+                .scale(by: 6)
             Circle()
                 .strokeBorder(lineWidth: 1)
                 .frame(width: Constants.screen.width / 5.5, height: Constants.screen.width / 5.5, alignment: .center)

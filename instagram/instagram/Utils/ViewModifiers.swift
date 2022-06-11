@@ -55,8 +55,17 @@ public extension Image {
     func fitToAspectRatio(_ aspectRatio: AspectRatio) -> some View {
         self.resizable().modifier(FitToAspectRatio(aspectRatio))
     }
+    
+    func squarify() -> some View {
+        self.resizable().modifier(FitToAspectRatio(1))
+    }
 }
 
+extension View {
+    func scale(by scaling: CGFloat) -> some View {
+        self.frame(width: screen.minDim / scaling, height: screen.minDim / scaling, alignment: .center)
+    }
+}
 
 struct ProfileHalfButton: ViewModifier {
     func body(content: Content) -> some View {

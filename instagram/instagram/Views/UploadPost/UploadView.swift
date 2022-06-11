@@ -9,31 +9,56 @@ import SwiftUI
 
 struct UploadView: View {
     var imageName = "KH Profile Pic"
-    @State var selectedImage: UIImage? = UIImage(named: "KH Profile Pic")!
-    @State var postImage: Image? = Image("KH Profile Pic")
+    @State var selectedImage: UIImage?
+    @State var postImage: Image?
     @State var caption = ""
+    @State var showPicker = false
     
     var body: some View {
         if let image = postImage {
             VStack {
                 HStack {
-                    Labels.postGridLabel(for: Posts.rockPost2, withScaling: 3)
+                    image
+                        .squarify()
+                        .scale(by: 3)
                     TextField("Enter your caption...", text: $caption)
                         .frame(maxHeight: screen.minDim / 3.4, alignment: .topLeading)
                         .textFieldify()
                 }
                 .padding(.vertical)
-                Text("Post")
-                    .profileFullButtonify()
-                    .blueButtonify()
+                Button  {
+                    //
+                } label: {
+                    Text("Post")
+                        .profileFullButtonify()
+                        .blueButtonify()
+                }
             }
             .padding()
         } else {
-            VStack {
-                Image(systemName: "plus.circle").font(.system(size: 150).weight(.ultraLight))
-                Text("Photo").font(.title3)
+            Button {
+                showPicker.toggle()
+            } label: {
+                VStack {
+                    Image(systemName: "plus.circle").font(.system(size: 150).weight(.ultraLight))
+                    Text("Photo").font(.title3)
+                }
             }
+            .buttonStyle(PlainButtonStyle())
+            .sheet(isPresented: $showPicker) {
+                loadImage()
+            } content: {
+                ImagePicker(selectedImage: $selectedImage)
+            }
+
         }
+    }
+}
+
+extension UploadView {
+    func loadImage() {
+        guard let image = selectedImage else { return }
+        postImage = Image(uiImage: image)
     }
 }
 

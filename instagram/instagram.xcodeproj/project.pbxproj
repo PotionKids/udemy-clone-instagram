@@ -20,6 +20,7 @@
 		EE99C0CA28500C1700426F6C /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0C928500C1700426F6C /* PostGridView.swift */; };
 		EE99C0CC28500F8C00426F6C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0CB28500F8C00426F6C /* UserCell.swift */; };
 		EE99C0CE28500FAB00426F6C /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0CD28500FAB00426F6C /* UserListView.swift */; };
+		EEBA25EC285417B0002F4E2F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBA25EB285417B0002F4E2F /* ImagePicker.swift */; };
 		EEC86B0F2851FA3300F46820 /* NetflixSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0C2851FA3300F46820 /* NetflixSansLight.otf */; };
 		EEC86B102851FA3300F46820 /* NetflixSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */; };
 		EEC86B112851FA3300F46820 /* NetflixSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */; };
@@ -54,6 +55,7 @@
 		EE99C0C928500C1700426F6C /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
 		EE99C0CB28500F8C00426F6C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		EE99C0CD28500FAB00426F6C /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		EEBA25EB285417B0002F4E2F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EEC86B0C2851FA3300F46820 /* NetflixSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansLight.otf; sourceTree = "<group>"; };
 		EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansMedium.otf; sourceTree = "<group>"; };
 		EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansBold.otf; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				EE99C0BB284F6F0100426F6C /* UploadView.swift */,
+				EEBA25EB285417B0002F4E2F /* ImagePicker.swift */,
 			);
 			path = UploadPost;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				EE99C0CE28500FAB00426F6C /* UserListView.swift in Sources */,
 				EEC86B182852988700F46820 /* Constants.swift in Sources */,
 				EE99C0B6284F6EB500426F6C /* SearchView.swift in Sources */,
+				EEBA25EC285417B0002F4E2F /* ImagePicker.swift in Sources */,
 				EEC86B1C2852B52400F46820 /* StoryView.swift in Sources */,
 				EEC86B262852C41700F46820 /* DisplayButtons.swift in Sources */,
 				EEE87A89284F6DD40043F019 /* FeedView.swift in Sources */,
