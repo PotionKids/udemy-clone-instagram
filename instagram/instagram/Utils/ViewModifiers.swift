@@ -136,6 +136,16 @@ struct SearchBarModifier: ViewModifier {
     }
 }
 
+struct TextFieldModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(Constants.screen.width / 50)
+//            .padding(.horizontal, Constants.screen.width / 16)
+            .background(Color(.systemGray5))
+            .cornerRadius(Constants.screen.width / 50)
+    }
+}
+
 extension View {
     func profileHalfButtonify() -> some View {
         modifier(ProfileHalfButton())
@@ -163,5 +173,9 @@ extension View {
     
     func searchBarify() -> some View {
         modifier(SearchBarModifier())
+    }
+    
+    func textFieldify() -> some View {
+        modifier(TextFieldModifier())
     }
 }
