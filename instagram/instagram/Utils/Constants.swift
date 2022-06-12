@@ -19,21 +19,27 @@ struct Constants {
     static let instaYellow = Color(red: 254 / 255, green: 218 / 255, blue: 119 / 255)
     static let instaOrange = Color(red: 245 / 255, green: 133 / 255, blue: 41 / 255)
     static let instaColors = [
-                                        instaBlue,
-                                        instaPurple,
-                                        instaPink,
-                                        instaYellow,
-                                        instaOrange
+                                            instaBlue,
+                                            instaPurple,
+                                            instaPink,
+                                            instaYellow,
+                                            instaOrange
                              ]
     static let instaColorsGradient = [
-                                        instaPurple,
-                                        instaPink,
-                                        instaYellow,
-                                        instaOrange,
-                                        instaYellow,
-                                        instaPink,
-                                        instaPurple
+                                            instaPurple,
+                                            instaPink,
+                                            instaYellow,
+                                            instaOrange,
+                                            instaYellow,
+                                            instaPink,
+                                            instaPurple
                                      ]
+    static let instaColorsLinearGradient = [
+                                            instaYellow,
+                                            instaPink,
+                                            instaPurple,
+                                            instaBlue
+                                           ]
     
 //    #515BD4 - rgb(81, 91, 212)    Blue
 //

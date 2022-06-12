@@ -22,8 +22,7 @@ struct UploadView: View {
                         .squarify()
                         .scale(by: 3)
                     TextField("Enter your caption...", text: $caption)
-                        .frame(maxHeight: screen.minDim / 3.4, alignment: .topLeading)
-                        .textFieldify()
+                        .textFieldify(withHeightScaling: 7.2)
                 }
                 .padding(.vertical)
                 Button  {

@@ -38,26 +38,32 @@ struct Labels {
     static let userNameLabelFont: Font = Font.headline.weight(.semibold)
     static let search: some View = image(for: .search)
     static let profileFollowButtonLabel: some View = Text("Follow")
-                                                        .profileHalfButtonify()
-                                                        .blueButtonify()
-    static let profileFollowingButtonLabel: some View = HStack{
-                                                            Text("Following")
-                                                            image(for: .chevronDown)
-                                                                .font(.caption.weight(.regular))
-                                                        }
-                                                        .profileHalfButtonify()
-                                                        .blackAndWhiteButtonify()
+                                                        .foregroundColor(.white)
+                                                        .halfBlueButtonify()
+    static let profileFollowingLabel: some View = HStack{
+                                                    Text("Following")
+                                                    image(for: .chevronDown)
+                                                        .font(.caption.weight(.regular))
+                                                }
+    static let profileFollowingButtonLabel: some View = profileFollowingLabel
+                                                        .halfBlueButtonify()
     
     static let profileMessageButtonLabel: some View = Text("Message")
                                                         .profileHalfButtonify()
                                                         .blackAndWhiteButtonify()
     
     static let profileEditButtonLabel: some View = Text("Edit Profile")
-                                                        .profileFullButtonify()
-                                                        .blackAndWhiteButtonify()
+                                                        .fullBlackAndWhiteButtonify()
 
+    static let landingLogo: some View = Image("Instagram Login Logo Font I")
+                                                        .fitToAspectRatio(3.5, backgroundColor: .clear)
+                                                        .scale(by: 2.5)
+                                                        .offset(y: screen.height / 50)
     
-    
+    static let landingCreateAccountLabel: some View = Text("Create new account")
+                                                        .font(.title3.weight(.semibold))
+                                                        .foregroundColor(.white)
+                                                        .fullBlueButtonify(height: .height(scaling: 25, tolerance: 0.1))
     
     static func image(for label: LabelType) -> some View {
         image(for: label, with: .black)

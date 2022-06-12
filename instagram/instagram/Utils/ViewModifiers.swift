@@ -21,21 +21,28 @@ public enum AspectRatioCustom {
 
 /// Fit an image to a certain aspect ratio while maintaining its aspect ratio
 public struct FitToAspectRatio: ViewModifier {
-    
     private let aspectRatio: CGFloat
+    private let backgroundColor: Color
     
     public init(_ aspectRatio: CGFloat) {
         self.aspectRatio = aspectRatio
+        self.backgroundColor = .black
     }
     
     public init(_ aspectRatio: AspectRatio) {
         self.aspectRatio = aspectRatio.rawValue
+        self.backgroundColor = .black
+    }
+    
+    public init(_ aspectRatio: CGFloat, backgroundColor: Color) {
+        self.aspectRatio = aspectRatio
+        self.backgroundColor = backgroundColor
     }
     
     public func body(content: Content) -> some View {
-        ZStack {
+        ZStack(alignment: .center) {
             Rectangle()
-                .fill(Color(.black))
+                .fill(backgroundColor)
                 .aspectRatio(aspectRatio, contentMode: .fit)
             
             content
@@ -54,6 +61,10 @@ public extension Image {
     
     func fitToAspectRatio(_ aspectRatio: AspectRatio) -> some View {
         self.resizable().modifier(FitToAspectRatio(aspectRatio))
+    }
+    
+    func fitToAspectRatio(_ aspectRatio: CGFloat, backgroundColor: Color) -> some View {
+        self.resizable().modifier(FitToAspectRatio(aspectRatio, backgroundColor: backgroundColor))
     }
     
     func squarify() -> some View {
@@ -77,10 +88,204 @@ struct ProfileHalfButton: ViewModifier {
 }
 
 struct ProfileFullButton: ViewModifier {
+    var heightScaling: CGFloat = 30
     func body(content: Content) -> some View {
         content
             .font(.body.weight(.medium))
-            .frame(minWidth: Constants.screen.width / 1.2, idealWidth: Constants.screen.width / 1.1, maxWidth: Constants.screen.width, minHeight: Constants.screen.minDim / 13, idealHeight: Constants.screen.minDim / 13, maxHeight: Constants.screen.minDim / 12, alignment: .center)
+            .frame(minWidth: Constants.screen.width / 1.2, idealWidth: Constants.screen.width / 1.1, maxWidth: Constants.screen.width, minHeight: Constants.screen.height / heightScaling, idealHeight: Constants.screen.height / heightScaling, maxHeight: Constants.screen.height / 12, alignment: .center)
+    }
+}
+
+
+struct Modifiers {
+    enum Shape {
+        case rectangle(cornerRadiusScaling: CGFloat)
+        case capsule
+        case circle
+        
+        var radius: CGFloat {
+            switch self {
+            case .rectangle(let cornerRadiusScaling):
+                return Constants.screen.minDim / cornerRadiusScaling
+            case .capsule, .circle:
+                return 0
+            }
+        }
+    }
+    
+    enum Line {
+        case width(scaling: CGFloat)
+        
+        var value: CGFloat {
+            switch self {
+            case .width(let scaling):
+                return Constants.screen.minDim / scaling
+            }
+        }
+    }
+}
+
+struct BackgroundModifier: ViewModifier {
+    var shape: Modifiers.Shape = .rectangle(cornerRadiusScaling: 100)
+    var color: Color = .blue
+    
+    init(shape: Modifiers.Shape = .rectangle(cornerRadiusScaling: 100), color: Color = .blue) {
+        self.shape = shape
+        self.color = color
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .background {
+                switch shape {
+                case .rectangle(let cornerRadiusScaling):
+                    RoundedRectangle(cornerRadius: Constants.screen.minDim / cornerRadiusScaling)
+                        .foregroundColor(color)
+                case .capsule:
+                    Capsule()
+                        .foregroundColor(color)
+                case .circle:
+                    Circle()
+                        .foregroundColor(color)
+                }
+            }
+    }
+}
+
+struct BorderModifier: ViewModifier {
+    var shape: Modifiers.Shape = .rectangle(cornerRadiusScaling: 100)
+    var width: Modifiers.Line = .width(scaling: 450)
+    var color: Color = .gray
+    
+    init(
+            shape: Modifiers.Shape = .rectangle(cornerRadiusScaling: 100),
+            width: Modifiers.Line,
+            color: Color = .blue
+    ) {
+        self.shape = shape
+        self.width = width
+        self.color = color
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .overlay(alignment: .center) {
+                switch shape {
+                case .rectangle(_):
+                    RoundedRectangle(cornerRadius: shape.radius)
+                        .strokeBorder(lineWidth: width.value)
+                        .foregroundColor(color)
+                case .capsule:
+                    Capsule()
+                        .strokeBorder(lineWidth: width.value)
+                        .foregroundColor(color)
+                case .circle:
+                    Circle()
+                        .strokeBorder(lineWidth: width.value)
+                        .foregroundColor(color)
+                }
+            }
+    }
+}
+
+struct FlexFrame: ViewModifier {
+    enum Level {
+        case min
+        case ideal
+        case max
+    }
+    
+    enum Dimension {
+        case width(scaling: CGFloat, tolerance: CGFloat)
+        case height(scaling: CGFloat, tolerance: CGFloat)
+        
+        var standard: CGFloat {
+            switch self {
+            case .width:
+                return Constants.screen.width
+            case .height:
+                return Constants.screen.height
+            }
+        }
+        
+        var minDim: CGFloat {
+            min(Constants.screen.width, Constants.screen.height)
+        }
+        
+        func length(_ level: Level) -> CGFloat {
+            switch level {
+            case .min:
+                switch self {
+                case .width(let scaling, let tolerance), .height(let scaling, let tolerance):
+                    return standard / (scaling * (1 + tolerance))
+                }
+            case .ideal:
+                switch self {
+                case .width(let scaling, _), .height(let scaling, _):
+                    return standard / scaling
+                }
+            case .max:
+                switch self {
+                case .width(let scaling, let tolerance), .height(let scaling, let tolerance):
+                    return standard / (scaling * (1 - tolerance))
+                }
+            }
+        }
+    }
+    
+    var width: Dimension = .width(scaling: 1.1, tolerance: 0.1)
+    var height: Dimension = .height(scaling: 30, tolerance: 0.1)
+    var alignment: Alignment = .center
+    
+    init(
+        width: Dimension = .width(scaling: 1.1, tolerance: 0.1),
+        height: Dimension = .height(scaling: 30, tolerance: 0.1),
+        alignment: Alignment = .center
+    ) {
+        self.width = width
+        self.height = height
+        self.alignment = alignment
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .frame(
+                minWidth: width.length(.min),
+                idealWidth: width.length(.ideal),
+                maxWidth: width.length(.max),
+                minHeight: height.length(.min),
+                idealHeight: height.length(.ideal),
+                maxHeight: height.length(.max),
+                alignment: alignment
+            )
+    }
+}
+
+struct ColorModifier: ViewModifier {
+    enum Colors {
+        case background(color: Color)
+        case foreground(color: Color)
+        
+        var color: Color {
+            switch self {
+            case .background(let color), .foreground(let color):
+                return color
+            }
+        }
+    }
+    
+    var background: Colors = .background(color: .blue)
+    var foreground: Colors = .foreground(color: .white)
+    
+    init(background: Color, foreground: Color) {
+        self.background = .background(color: background)
+        self.foreground = .foreground(color: foreground)
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(foreground.color)
+            .background(background.color)
     }
 }
 
@@ -146,10 +351,11 @@ struct SearchBarModifier: ViewModifier {
 }
 
 struct TextFieldModifier: ViewModifier {
+    var heightScaling: CGFloat = 30
     func body(content: Content) -> some View {
         content
+            .frame(height: Constants.screen.height / heightScaling)
             .padding(Constants.screen.width / 50)
-//            .padding(.horizontal, Constants.screen.width / 16)
             .background(Color(.systemGray5))
             .cornerRadius(Constants.screen.width / 50)
     }
@@ -172,6 +378,10 @@ extension View {
         modifier(ProfileFullButton())
     }
     
+    func profileFullButtonify(withHeightScaling scaling: CGFloat) -> some View {
+        modifier(ProfileFullButton(heightScaling: scaling))
+    }
+    
     func storyThumbnailify() -> some View {
         modifier(StoryThumbnail())
     }
@@ -186,5 +396,96 @@ extension View {
     
     func textFieldify() -> some View {
         modifier(TextFieldModifier())
+    }
+    
+    func textFieldify(withHeightScaling scaling: CGFloat) -> some View {
+        modifier(TextFieldModifier(heightScaling: scaling))
+    }
+    
+    func backgroundify() -> some View {
+        modifier(BackgroundModifier(shape: .rectangle(cornerRadiusScaling: 25), color: .white))
+    }
+
+    func flexFramify(
+                        width: FlexFrame.Dimension = .width(scaling: 1.1, tolerance: 0.1) ,
+                        height: FlexFrame.Dimension = .height(scaling: 30, tolerance: 0.1),
+                        alignment: Alignment = .center
+    ) -> some View {
+        modifier(FlexFrame(width: width, height: height, alignment: alignment))
+    }
+    
+    func backgroundify(
+                        shape: Modifiers.Shape = .rectangle(cornerRadiusScaling: 150),
+                        color: Color = .blue
+    ) -> some View {
+        modifier(BackgroundModifier(shape: shape, color: color))
+    }
+    
+    func borderify(
+                        shape: Modifiers.Shape = .rectangle(cornerRadiusScaling: 150),
+                        width: Modifiers.Line = .width(scaling: 450),
+                        color: Color = .gray
+    ) -> some View {
+        modifier(BorderModifier(shape: shape, width: width, color: color))
+    }
+    
+    func fullButtonify(
+        height: FlexFrame.Dimension = .height(scaling: 30, tolerance: 0.1)
+    ) -> some View {
+        self.flexFramify(
+                    width: .width(scaling: 1.1, tolerance: 0.1),
+                    height: height,
+                    alignment: .center
+        )
+    }
+    
+    func fullBlueButtonify(
+                        height: FlexFrame.Dimension = .height(scaling: 30, tolerance: 0.1),
+                        shape: Modifiers.Shape = .rectangle(cornerRadiusScaling: 150)
+    ) -> some View {
+        self
+            .fullButtonify(height: height)
+            .backgroundify(shape: shape, color: .blue)
+    }
+    
+    func fullBlackAndWhiteButtonify(
+        height: FlexFrame.Dimension = .height(scaling: 30, tolerance: 0.1),
+        shape: Modifiers.Shape = .rectangle(cornerRadiusScaling: 150),
+        lineWidth: Modifiers.Line = .width(scaling: 450)
+    ) -> some View {
+        self
+            .fullButtonify(height: height)
+            .backgroundify(shape: shape, color: .white)
+            .borderify(shape: shape, width: lineWidth, color: .gray)
+    }
+    
+    func halfButtonify(
+        height: FlexFrame.Dimension = .height(scaling: 30, tolerance: 0.1)
+    ) -> some View {
+        self.flexFramify(
+                    width: .width(scaling: 2.2, tolerance: 0.1),
+                    height: height,
+                    alignment: .center
+        )
+    }
+    
+    func halfBlueButtonify(
+        height: FlexFrame.Dimension = .height(scaling: 30, tolerance: 0.1),
+        shape: Modifiers.Shape = .rectangle(cornerRadiusScaling: 150)
+    ) -> some View {
+        self
+            .halfButtonify(height: height)
+            .backgroundify(shape: shape, color: .blue)
+    }
+    
+    func halfBlackAndWhiteButtonify(
+        height: FlexFrame.Dimension = .height(scaling: 30, tolerance: 0.1),
+        shape: Modifiers.Shape = .rectangle(cornerRadiusScaling: 150),
+        lineWidth: Modifiers.Line = .width(scaling: 450)
+    ) -> some View {
+        self
+            .halfButtonify(height: height)
+            .backgroundify(shape: shape, color: .white)
+            .borderify(shape: shape, width: lineWidth, color: .gray)
     }
 }

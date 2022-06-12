@@ -50,6 +50,6 @@ struct ProfileButtons: View {
 
 struct ProfileButtons_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileButtons(isFollowedByCurrentUser: .constant(true), isCurrentUser: .constant(false))
+        ProfileButtons(isFollowedByCurrentUser: .constant(true), isCurrentUser: .constant(true))
     }
 }

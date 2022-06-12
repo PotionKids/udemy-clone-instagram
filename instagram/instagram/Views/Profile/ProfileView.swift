@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     var user = Users.galGadot
-    @State private var isCurrentUser = true
+    @State private var isCurrentUser = false
     @State private var isFollowedByCurrentUser = false
     var body: some View {
         ScrollView {

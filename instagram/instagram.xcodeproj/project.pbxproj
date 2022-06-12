@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE18FE5928551327008B96FA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE18FE5828551327008B96FA /* Login.swift */; };
 		EE99C0B6284F6EB500426F6C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B5284F6EB500426F6C /* SearchView.swift */; };
 		EE99C0B8284F6ECC00426F6C /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B7284F6ECC00426F6C /* NotificationsView.swift */; };
 		EE99C0BA284F6EE600426F6C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B9284F6EE600426F6C /* ProfileView.swift */; };
@@ -21,6 +22,9 @@
 		EE99C0CC28500F8C00426F6C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0CB28500F8C00426F6C /* UserCell.swift */; };
 		EE99C0CE28500FAB00426F6C /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0CD28500FAB00426F6C /* UserListView.swift */; };
 		EEBA25EC285417B0002F4E2F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBA25EB285417B0002F4E2F /* ImagePicker.swift */; };
+		EEBA25EE285426E2002F4E2F /* Landing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBA25ED285426E2002F4E2F /* Landing.swift */; };
+		EEBA25F0285426F5002F4E2F /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBA25EF285426F5002F4E2F /* Register.swift */; };
+		EEBA25F228542706002F4E2F /* PasswordReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBA25F128542706002F4E2F /* PasswordReset.swift */; };
 		EEC86B0F2851FA3300F46820 /* NetflixSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0C2851FA3300F46820 /* NetflixSansLight.otf */; };
 		EEC86B102851FA3300F46820 /* NetflixSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */; };
 		EEC86B112851FA3300F46820 /* NetflixSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */; };
@@ -42,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE18FE5828551327008B96FA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		EE99C0B5284F6EB500426F6C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		EE99C0B7284F6ECC00426F6C /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		EE99C0B9284F6EE600426F6C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -56,6 +61,9 @@
 		EE99C0CB28500F8C00426F6C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		EE99C0CD28500FAB00426F6C /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		EEBA25EB285417B0002F4E2F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		EEBA25ED285426E2002F4E2F /* Landing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landing.swift; sourceTree = "<group>"; };
+		EEBA25EF285426F5002F4E2F /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		EEBA25F128542706002F4E2F /* PasswordReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReset.swift; sourceTree = "<group>"; };
 		EEC86B0C2851FA3300F46820 /* NetflixSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansLight.otf; sourceTree = "<group>"; };
 		EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansMedium.otf; sourceTree = "<group>"; };
 		EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansBold.otf; sourceTree = "<group>"; };
@@ -263,6 +271,10 @@
 		EEE87A80284F6C270043F019 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				EEBA25ED285426E2002F4E2F /* Landing.swift */,
+				EE18FE5828551327008B96FA /* Login.swift */,
+				EEBA25EF285426F5002F4E2F /* Register.swift */,
+				EEBA25F128542706002F4E2F /* PasswordReset.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -381,10 +393,13 @@
 				EE99C0CE28500FAB00426F6C /* UserListView.swift in Sources */,
 				EEC86B182852988700F46820 /* Constants.swift in Sources */,
 				EE99C0B6284F6EB500426F6C /* SearchView.swift in Sources */,
+				EE18FE5928551327008B96FA /* Login.swift in Sources */,
 				EEBA25EC285417B0002F4E2F /* ImagePicker.swift in Sources */,
 				EEC86B1C2852B52400F46820 /* StoryView.swift in Sources */,
 				EEC86B262852C41700F46820 /* DisplayButtons.swift in Sources */,
+				EEBA25F0285426F5002F4E2F /* Register.swift in Sources */,
 				EEE87A89284F6DD40043F019 /* FeedView.swift in Sources */,
+				EEBA25EE285426E2002F4E2F /* Landing.swift in Sources */,
 				EEE87A87284F6CF50043F019 /* HomeTabView.swift in Sources */,
 				EE99C0C2284FC1AF00426F6C /* Labels.swift in Sources */,
 				EEC86B222852B6B400F46820 /* ProfileButtons.swift in Sources */,
@@ -402,6 +417,7 @@
 				EEC86B1A2852A70E00F46820 /* ViewModifiers.swift in Sources */,
 				EEC86B202852B57C00F46820 /* UserStatView.swift in Sources */,
 				EE99C0C4284FC4FD00426F6C /* User.swift in Sources */,
+				EEBA25F228542706002F4E2F /* PasswordReset.swift in Sources */,
 				EE99C0BA284F6EE600426F6C /* ProfileView.swift in Sources */,
 				EE99C0B8284F6ECC00426F6C /* NotificationsView.swift in Sources */,
 				EE99C0BE284FB0FF00426F6C /* FeedCell.swift in Sources */,
