@@ -20,6 +20,8 @@ enum LabelType: String, CaseIterable {
     
     case eyeOpen = "eye"
     case eyeClosed = "eye.slash"
+    case person = "person"
+    case personInACircle = "person.circle"
 }
 
 enum LabelErrors: Error {

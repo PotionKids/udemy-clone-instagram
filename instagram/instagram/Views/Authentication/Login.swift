@@ -12,6 +12,8 @@ struct Login: View {
     @State private var password: String = ""
     @State private var isSecured: Bool = true
     
+    @Binding var showing: LandingScreen
+    
     var body: some View {
         NavigationView {
             VStack(spacing: screen.minDim / 30) {
@@ -155,7 +157,8 @@ struct Login: View {
     
     var signUpButton: some View {
         NavigationLink {
-            Register()
+            Signup(showing: $showing)
+                .navigationBarHidden(true)
         } label: {
             Text("Sign up.")
         }
@@ -165,6 +168,6 @@ struct Login: View {
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
-        Login()
+        Login(showing: .constant(.login))
     }
 }

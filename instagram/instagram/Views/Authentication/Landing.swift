@@ -8,33 +8,32 @@
 import SwiftUI
 
 struct Landing: View {
+    @Binding var showing: LandingScreen
+    
     var body: some View {
-        NavigationView {
-            ZStack(alignment: .center) {
-                Color.white.ignoresSafeArea()
-                VStack {
-                    Labels.landingLogo
-                    createAccountButton
-                    loginButton
-                }
-                .padding(.horizontal)
-                .offset(y: -screen.height / 10)
+        ZStack(alignment: .center) {
+            Color.white.ignoresSafeArea()
+            VStack {
+                Labels.landingLogo
+                createAccountButton
+                loginButton
             }
+            .padding(.horizontal)
+            .offset(y: -screen.height / 17)
         }
     }
     
     var createAccountButton: some View {
         Button {
-            //
+            showing = .signup
         } label: {
             Labels.landingCreateAccountLabel
         }
         .buttonStyle(PlainButtonStyle())
-
     }
     var loginButton: some View {
         Button {
-            //
+            showing = .login
         } label: {
             Text("Log in")
                 .font(.title3.weight(.semibold))
@@ -45,6 +44,6 @@ struct Landing: View {
 
 struct Landing_Previews: PreviewProvider {
     static var previews: some View {
-        Landing()
+        Landing(showing: .constant(.landing))
     }
 }

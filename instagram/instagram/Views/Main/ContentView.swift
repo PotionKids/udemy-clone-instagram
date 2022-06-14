@@ -12,7 +12,13 @@ struct ContentView: View {
 //        HomeTabView()
 //        SearchView()
 //        NotificationsView()
-        Login()
+//        Login()
+//        CustomTabSwitcher()
+//        CountryCodes(countryCode: .constant("91"), countryFlag: .constant("🇮🇳"), y: .constant(100))
+//        PhoneNumberTextFieldView()
+//        Signup(email: .constant(""), phone: .constant(""))
+//        Landing(showing: .constant(.landing))
+        Opening()
     }
 }
 
