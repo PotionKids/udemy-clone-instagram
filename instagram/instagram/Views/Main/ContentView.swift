@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
 //        HomeTabView()
 //        SearchView()
@@ -18,7 +20,14 @@ struct ContentView: View {
 //        PhoneNumberTextFieldView()
 //        Signup(email: .constant(""), phone: .constant(""))
 //        Landing(showing: .constant(.landing))
-        Opening()
+//        Opening()
+        Group {
+            if viewModel.userSession == nil {
+                Landing(showing: .constant(.landing))
+            } else {
+                HomeTabView()
+            }
+        }
     }
 }
 

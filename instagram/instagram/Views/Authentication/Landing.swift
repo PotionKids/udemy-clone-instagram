@@ -36,7 +36,7 @@ struct Landing: View {
             showing = .login
         } label: {
             Text("Log in")
-                .font(.title3.weight(.semibold))
+                .font(.body.weight(.semibold))
         }
         .padding(.vertical)
     }

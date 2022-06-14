@@ -69,7 +69,7 @@ struct Labels {
                                                         .offset(y: screen.height / 50)
     
     static let landingCreateAccountLabel: some View = Text("Create new account")
-                                                        .font(.title3.weight(.semibold))
+                                                        .font(.body.weight(.semibold))
                                                         .foregroundColor(.white)
                                                         .fullBlueButtonify(height: .height(scaling: 25, tolerance: 0.1))
     
