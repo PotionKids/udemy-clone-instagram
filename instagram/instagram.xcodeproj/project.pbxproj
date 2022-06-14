@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE11EEF828591E8200E3D6A7 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EE11EEF728591E8200E3D6A7 /* FirebaseMessaging */; };
+		EE11EEFB2859204100E3D6A7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EE11EEFA2859204100E3D6A7 /* Kingfisher */; };
+		EE11EEFD285921D700E3D6A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE11EEFC285921D700E3D6A7 /* GoogleService-Info.plist */; };
 		EE18FE5928551327008B96FA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE18FE5828551327008B96FA /* Login.swift */; };
 		EE99C0B6284F6EB500426F6C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B5284F6EB500426F6C /* SearchView.swift */; };
 		EE99C0B8284F6ECC00426F6C /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B7284F6ECC00426F6C /* NotificationsView.swift */; };
@@ -43,6 +46,10 @@
 		EEE2C7A52858BC8F009BF5B6 /* CountryCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2C7A42858BC8F009BF5B6 /* CountryCodes.swift */; };
 		EEE2C7A72858C22A009BF5B6 /* PhoneNumberTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2C7A62858C22A009BF5B6 /* PhoneNumberTextFieldView.swift */; };
 		EEE2C7A92859071E009BF5B6 /* Opening.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE2C7A82859071E009BF5B6 /* Opening.swift */; };
+		EEE2C7AC28591DF1009BF5B6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EEE2C7AB28591DF1009BF5B6 /* FirebaseAuth */; };
+		EEE2C7AE28591DF1009BF5B6 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EEE2C7AD28591DF1009BF5B6 /* FirebaseFirestoreSwift */; };
+		EEE2C7B028591DF1009BF5B6 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = EEE2C7AF28591DF1009BF5B6 /* FirebaseFunctions */; };
+		EEE2C7B228591DF1009BF5B6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EEE2C7B128591DF1009BF5B6 /* FirebaseStorage */; };
 		EEE87A67284F69BD0043F019 /* instagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE87A66284F69BD0043F019 /* instagramApp.swift */; };
 		EEE87A69284F69BD0043F019 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE87A68284F69BD0043F019 /* ContentView.swift */; };
 		EEE87A6B284F69BF0043F019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE87A6A284F69BF0043F019 /* Assets.xcassets */; };
@@ -52,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE11EEFC285921D700E3D6A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE18FE5828551327008B96FA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		EE99C0B5284F6EB500426F6C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		EE99C0B7284F6ECC00426F6C /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
@@ -103,6 +111,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE11EEFB2859204100E3D6A7 /* Kingfisher in Frameworks */,
+				EEE2C7B028591DF1009BF5B6 /* FirebaseFunctions in Frameworks */,
+				EEE2C7B228591DF1009BF5B6 /* FirebaseStorage in Frameworks */,
+				EE11EEF828591E8200E3D6A7 /* FirebaseMessaging in Frameworks */,
+				EEE2C7AC28591DF1009BF5B6 /* FirebaseAuth in Frameworks */,
+				EEE2C7AE28591DF1009BF5B6 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				EEC86B122851FA9600F46820 /* Info.plist */,
+				EE11EEFC285921D700E3D6A7 /* GoogleService-Info.plist */,
 				EEE87A74284F6B7C0043F019 /* Models */,
 				EEE87A75284F6B870043F019 /* Views */,
 				EEE87A76284F6B8E0043F019 /* ViewModels */,
@@ -351,6 +366,14 @@
 			dependencies = (
 			);
 			name = instagram;
+			packageProductDependencies = (
+				EEE2C7AB28591DF1009BF5B6 /* FirebaseAuth */,
+				EEE2C7AD28591DF1009BF5B6 /* FirebaseFirestoreSwift */,
+				EEE2C7AF28591DF1009BF5B6 /* FirebaseFunctions */,
+				EEE2C7B128591DF1009BF5B6 /* FirebaseStorage */,
+				EE11EEF728591E8200E3D6A7 /* FirebaseMessaging */,
+				EE11EEFA2859204100E3D6A7 /* Kingfisher */,
+			);
 			productName = instagram;
 			productReference = EEE87A63284F69BD0043F019 /* instagram.app */;
 			productType = "com.apple.product-type.application";
@@ -379,6 +402,11 @@
 				Base,
 			);
 			mainGroup = EEE87A5A284F69BD0043F019;
+			packageReferences = (
+				EEE2C7AA28591DF1009BF5B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				EE11EEF628591E8200E3D6A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				EE11EEF92859204100E3D6A7 /* XCRemoteSwiftPackageReference "kingfisher" */,
+			);
 			productRefGroup = EEE87A64284F69BD0043F019 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -398,6 +426,7 @@
 				EEC86B102851FA3300F46820 /* NetflixSansMedium.otf in Resources */,
 				EEE87A6B284F69BF0043F019 /* Assets.xcassets in Resources */,
 				EEC86B112851FA3300F46820 /* NetflixSansBold.otf in Resources */,
+				EE11EEFD285921D700E3D6A7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +676,66 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EE11EEF628591E8200E3D6A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		EE11EEF92859204100E3D6A7 /* XCRemoteSwiftPackageReference "kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		EEE2C7AA28591DF1009BF5B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EE11EEF728591E8200E3D6A7 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE11EEF628591E8200E3D6A7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		EE11EEFA2859204100E3D6A7 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE11EEF92859204100E3D6A7 /* XCRemoteSwiftPackageReference "kingfisher" */;
+			productName = Kingfisher;
+		};
+		EEE2C7AB28591DF1009BF5B6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEE2C7AA28591DF1009BF5B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		EEE2C7AD28591DF1009BF5B6 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEE2C7AA28591DF1009BF5B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		EEE2C7AF28591DF1009BF5B6 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEE2C7AA28591DF1009BF5B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		EEE2C7B128591DF1009BF5B6 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEE2C7AA28591DF1009BF5B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EEE87A5B284F69BD0043F019 /* Project object */;
 }
