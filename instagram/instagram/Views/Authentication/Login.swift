@@ -129,6 +129,7 @@ struct Login: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 25, height: 25, alignment: .center)
+                    .symbolRenderingMode(.hierarchical)
                     .foregroundColor(.red)
                 Text("Log in with Facebook")
                     .font(.body.weight(.bold))
