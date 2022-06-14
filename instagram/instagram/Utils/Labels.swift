@@ -17,6 +17,9 @@ enum LabelType: String, CaseIterable {
     case verified = "checkmark.seal.fill"
     case search = "magnifyingglass"
     case chevronDown = "chevron.down"
+    
+    case eyeOpen = "eye"
+    case eyeClosed = "eye.slash"
 }
 
 enum LabelErrors: Error {
@@ -34,6 +37,9 @@ struct Labels {
     static let share: some View = image(for: .share)
     static let verified: some View = image(for: .verified)
     static let verifiedBlue: some View = image(for: .verified, with: .blue)
+    
+    static let passwordVisible: some View = image(for: .eyeOpen)
+    static let passwordInvisible: some View = image(for: .eyeClosed)
     
     static let userNameLabelFont: Font = Font.headline.weight(.semibold)
     static let search: some View = image(for: .search)
