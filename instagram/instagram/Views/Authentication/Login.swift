@@ -13,22 +13,24 @@ struct Login: View {
     @State private var isSecured: Bool = true
     
     var body: some View {
-        VStack(spacing: screen.minDim / 30) {
-            Spacer()
-            Labels.landingLogo.frame(width: 300, height: 100, alignment: .bottom)
-                .padding(.bottom)
-            loginTextField
-            passwordTextField
-            loginButton
-            forgotPasswordLine
-            ORline
-            loginWithFacebook
-            Spacer()
-            dontHaveAnAccountSignUp
-        }
-        .padding()
-        .offset(y: -screen.height / 50)
+        NavigationView {
+            VStack(spacing: screen.minDim / 30) {
+                Spacer()
+                Labels.landingLogo.frame(width: 300, height: 100, alignment: .bottom)
+                    .padding(.bottom)
+                loginTextField
+                passwordTextField
+                loginButton
+                forgotPasswordLine
+                ORline
+                loginWithFacebook
+                Spacer()
+                dontHaveAnAccountSignUp
+            }
+            .padding()
+            .offset(y: -screen.height / 50)
         .ignoresSafeArea()
+        }
     }
     var loginTextField: some View {
         TextField("Phone number, email or username", text: $login)
@@ -151,8 +153,8 @@ struct Login: View {
     }
     
     var signUpButton: some View {
-        Button {
-            //
+        NavigationLink {
+            Register()
         } label: {
             Text("Sign up.")
         }
