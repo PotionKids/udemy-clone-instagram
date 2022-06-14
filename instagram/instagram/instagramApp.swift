@@ -17,7 +17,8 @@ struct instagramApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            Login(showing: .constant(.login)).environmentObject(AuthViewModel())
         }
     }
 }

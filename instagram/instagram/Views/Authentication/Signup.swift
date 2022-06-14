@@ -12,7 +12,7 @@ struct Signup: View {
     @State var phone: String = ""
     @Binding var showing: LandingScreen
     
-    @Environment(\.presentationMode) var mode
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         NavigationView {
@@ -49,7 +49,7 @@ struct Signup: View {
     
     var nextButton: some View {
         Button {
-            mode.wrappedValue.dismiss()
+            viewModel.signup()
         } label: {
             Text("Next")
                 .font(.title3.weight(.medium))

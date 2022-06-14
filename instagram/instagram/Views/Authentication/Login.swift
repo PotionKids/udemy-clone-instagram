@@ -14,6 +14,8 @@ struct Login: View {
     
     @Binding var showing: LandingScreen
     
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         NavigationView {
             VStack(spacing: screen.minDim / 30) {
@@ -78,7 +80,7 @@ struct Login: View {
     
     var loginButton: some View {
         Button {
-            //
+            viewModel.login()
         } label: {
             Text("Log in")
                 .font(.body.weight(.medium))
