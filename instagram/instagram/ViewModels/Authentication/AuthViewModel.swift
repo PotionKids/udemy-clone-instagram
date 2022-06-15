@@ -30,8 +30,8 @@ class AuthViewModel: ObservableObject {
                     print(error.localizedDescription)
                     return
                 }
+                
                 guard let user = result?.user else { return }
-                self.userSession = user
                 print("DEBUG: SUCESS: Successfully registered user.")
                 
                 let data = [
