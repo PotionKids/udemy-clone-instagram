@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    var user = Users.galGadot
+    var user = UsersExample.galGadot
     @State private var isCurrentUser = false
     @State private var isFollowedByCurrentUser = false
     var body: some View {
@@ -33,13 +33,13 @@ struct ProfileView: View {
         }
     }
     
-    func followedBy(user: User) -> some View {
+    func followedBy(user: UserExample) -> some View {
         Text("Followed by **therock**, **sushmitasen47** and **275 others**").font(.subheadline)
     }
-    func bio(for user: User) -> some View {
+    func bio(for user: UserExample) -> some View {
         Text(user.bio)
     }
-    func userFullName(for user: User) -> some View {
+    func userFullName(for user: UserExample) -> some View {
         HStack {
             Text(user.fullname).font(.body.weight(.semibold))
                 .frame(width: screen.minDim / 4.3, alignment: .leading)

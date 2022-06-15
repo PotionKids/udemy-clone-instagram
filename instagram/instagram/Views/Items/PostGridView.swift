@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PostGridView: View {
-    var posts = Users.all.flatMap { user in
+    var posts = UsersExample.all.flatMap { user in
         user.posts
     }
     private let items = [GridItem(), GridItem(), GridItem()]

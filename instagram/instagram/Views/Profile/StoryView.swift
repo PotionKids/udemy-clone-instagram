@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StoryView: View {
-    var post = Posts.galGadotStory2
+    var post = PostsExample.galGadotStory2
     var body: some View {
         VStack {
             Labels.profileStoryThumbnail(for: post)

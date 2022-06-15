@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import Firebase
 
 struct Constants {
     static let screen = UIScreen.main.bounds
@@ -47,4 +48,6 @@ struct Constants {
     static let profileImageURL = "profileImageURL"
     static let uID = "uid"
     static let users = "users"
+    
+    static let collectionUsers = Firestore.firestore().collection("users")
 }

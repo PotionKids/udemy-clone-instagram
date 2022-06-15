@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ProfileHeader: View {
-    var user = Users.galGadot
+    var user = UsersExample.galGadot
     
     var body: some View {
         HStack {
-            Labels.profileImage(for: Users.galGadot)
+            Labels.profileImage(for: UsersExample.galGadot)
             Spacer()
             UserStatView(stat: .posts, count: user.postCount)
             Spacer()

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestoreSwift
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
@@ -14,6 +15,7 @@ class AuthViewModel: ObservableObject {
     
     init() {
         userSession = Auth.auth().currentUser
+        fetch()
     }
     
     func login(withLogin login: String, password: String) {
@@ -65,6 +67,10 @@ class AuthViewModel: ObservableObject {
         print("Reset")
     }
     func fetch() {
-        print("Fetch")
+        guard let uid = userSession?.uid else { return }
+        Constants.collectionUsers.document(uid).getDocument { snapshot, _ in
+            guard let user = try? snapshot?.data(as: User.self) else { return }
+            print("DEBUG: User fetched: \(user)")
+        }
     }
 }

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct FeedCell: View {
-    var user: User
-    var post: Post
+    var user: UserExample
+    var post: PostExample
     @State private var liked: Bool = false
     var body: some View {
         ScrollView {
@@ -89,6 +89,6 @@ struct FeedCell: View {
 
 struct FeedCell_Previews: PreviewProvider {
     static var previews: some View {
-        FeedCell(user: Users.therock, post: Posts.rockPost1)
+        FeedCell(user: UsersExample.therock, post: PostsExample.rockPost1)
     }
 }

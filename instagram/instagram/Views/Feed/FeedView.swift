@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeedView: View {
-    var users = Users.all
+    var users = UsersExample.all
     var body: some View {
         ScrollView {
             LazyVStack {

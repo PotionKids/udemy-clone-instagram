@@ -11,7 +11,7 @@ struct NotificationsView: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(Users.all) { user in
+                ForEach(UsersExample.all) { user in
                     NotificationCell(user: user, post: user.posts[0], isFollowed: true)
                 }
             }

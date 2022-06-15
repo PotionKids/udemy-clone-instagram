@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Stories: View {
-    var user = Users.galGadot
+    var user = UsersExample.galGadot
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {

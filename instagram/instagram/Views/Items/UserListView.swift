@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserListView: View {
-    var users: [User] = Users.all
+    var users: [UserExample] = UsersExample.all
     var body: some View {
         LazyVStack(spacing: screen.minDim / 30) {
             ForEach(users) { user in

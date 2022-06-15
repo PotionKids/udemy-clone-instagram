@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserCell: View {
-    var user: User
+    var user: UserExample
     var body: some View {
         HStack {
                 Labels.userCellLabel(for: user)
@@ -18,6 +18,6 @@ struct UserCell: View {
 
 struct UserCell_Previews: PreviewProvider {
     static var previews: some View {
-        UserCell(user: Users.obama)
+        UserCell(user: UsersExample.obama)
     }
 }

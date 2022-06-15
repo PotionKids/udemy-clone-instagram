@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct NotificationCell: View {
-    var user: User
-    var post: Post
+    var user: UserExample
+    var post: PostExample
     var isFollowed: Bool
     @State private var showPostImage: Bool = true
     var body: some View {
@@ -31,6 +31,6 @@ struct NotificationCell: View {
 
 struct NotificationCell_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationCell(user: Users.obama, post: Posts.rockPost3, isFollowed: false)
+        NotificationCell(user: UsersExample.obama, post: PostsExample.rockPost3, isFollowed: false)
     }
 }
