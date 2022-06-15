@@ -15,6 +15,7 @@ enum SignUpMode: String, CaseIterable {
 struct CustomTabSwitcher: View {
     @Binding var phone: String
     @Binding var email: String
+    @Binding var password: String
     
     @State private var mode: SignUpMode = .phone
     
@@ -39,7 +40,7 @@ struct CustomTabSwitcher: View {
             case .phone:
                 PhoneSignup(phoneNumber: $phone)
             case .email:
-                EmailSignup(email: $email)
+                EmailSignup(email: $email, password: $password)
             }
         }
     }
@@ -59,6 +60,6 @@ struct CustomTabSwitcher: View {
 
 struct CustomTabSwitcher_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTabSwitcher(phone: .constant(""), email: .constant(""))
+        CustomTabSwitcher(phone: .constant(""), email: .constant(""), password: .constant(""))
     }
 }

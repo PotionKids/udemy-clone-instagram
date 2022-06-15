@@ -23,7 +23,7 @@ struct ContentView: View {
 //        Opening()
         Group {
             if viewModel.userSession == nil {
-                Landing(showing: .constant(.landing))
+                Opening()
             } else {
                 HomeTabView()
             }

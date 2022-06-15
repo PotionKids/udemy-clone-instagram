@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Signup: View {
     @State var email: String = ""
+    @State var password: String = ""
     @State var phone: String = ""
     @Binding var showing: LandingScreen
     
@@ -20,7 +21,7 @@ struct Signup: View {
                 Spacer()
                 VStack {
                     profileImage
-                    CustomTabSwitcher(phone: $phone, email: $email)
+                    CustomTabSwitcher(phone: $phone, email: $email, password: $password)
                         .padding(.vertical)
                     youMayReceiveSMS
                     nextButton
@@ -49,7 +50,7 @@ struct Signup: View {
     
     var nextButton: some View {
         Button {
-            viewModel.signup()
+            viewModel.signup(withEmail: email, password: password)
         } label: {
             Text("Next")
                 .font(.title3.weight(.medium))

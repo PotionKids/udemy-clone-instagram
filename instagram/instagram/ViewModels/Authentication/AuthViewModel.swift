@@ -15,11 +15,20 @@ class AuthViewModel: ObservableObject {
         userSession = Auth.auth().currentUser
     }
     
-    func login() {
-        print("Login")
+    func login(withLogin login: String, password: String) {
+        print("Login: \(login) | Password: \(password)")
     }
-    func signup() {
-        print("Signup")
+    func signup(withEmail email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let user = result?.user else { return }
+            self.userSession = user
+            print("Successfully registered user.")
+        }
     }
     func logout() {
         print("Logout")

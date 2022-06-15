@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Landing: View {
     @Binding var showing: LandingScreen
-    
+    @Environment(\.presentationMode) var mode
     var body: some View {
         ZStack(alignment: .center) {
             Color.white.ignoresSafeArea()
@@ -26,6 +26,7 @@ struct Landing: View {
     var createAccountButton: some View {
         Button {
             showing = .signup
+            mode.wrappedValue.dismiss()
         } label: {
             Labels.landingCreateAccountLabel
         }

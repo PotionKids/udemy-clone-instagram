@@ -20,8 +20,7 @@ struct Login: View {
         NavigationView {
             VStack(spacing: screen.minDim / 30) {
                 Spacer()
-                Labels.landingLogo.frame(width: 300, height: 100, alignment: .bottom)
-                    .padding(.bottom)
+                logo
                 loginTextField
                 passwordTextField
                 loginButton
@@ -36,8 +35,15 @@ struct Login: View {
         .ignoresSafeArea()
         }
     }
+    
+    var logo: some View {
+        Labels.landingLogo.frame(width: 300, height: 100, alignment: .bottom)
+            .padding(.bottom)
+    }
     var loginTextField: some View {
         TextField("Phone number, email or username", text: $login)
+            .disableAutocorrection(true)
+            .textInputAutocapitalization(.never)
             .textFieldify(withHeightScaling: 25)
     }
     var passwordTextField: some View {
@@ -80,7 +86,7 @@ struct Login: View {
     
     var loginButton: some View {
         Button {
-            viewModel.login()
+            viewModel.login(withLogin: login, password: password)
         } label: {
             Text("Log in")
                 .font(.body.weight(.medium))
