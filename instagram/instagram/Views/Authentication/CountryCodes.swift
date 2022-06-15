@@ -32,8 +32,8 @@ struct CountryCodes : View {
                     }
             }
             .padding(.bottom)
-            .frame(width: geo.size.width, height: 300)
-            .position(x: geo.frame(in: .global).midX, y: geo.frame(in: .global).maxY - 150)
+            .frame(width: geo.size.width, height: 150)
+            .position(x: geo.frame(in: .global).midX - 25, y: geo.frame(in: .global).maxY - 200)
         }
     }
     let countryDictionary  = ["AF":"93","AL":"355","DZ":"213","US":"1",

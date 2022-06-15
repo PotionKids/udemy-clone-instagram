@@ -9,18 +9,40 @@ import SwiftUI
 
 struct EmailSignup: View {
     @State private var isSecured: Bool = true
+    @Binding var username: String
+    @Binding var fullname: String
     @Binding var email: String
     @Binding var password: String
     
     var body: some View {
         VStack {
-            TextField("Email", text: $email)
-                .font(.title3)
-                .disableAutocorrection(true)
-                .textInputAutocapitalization(.never)
-            .textFieldify(withHeightScaling: 25)
+            usernameTextField
+            fullnameTextField
+            emailTextField
             passwordTextField
         }
+    }
+    
+    var usernameTextField: some View {
+        TextField("Username", text: $username)
+            .font(.title3)
+            .disableAutocorrection(true)
+            .textInputAutocapitalization(.never)
+        .textFieldify(withHeightScaling: 25)
+    }
+    var fullnameTextField: some View {
+        TextField("Fullname", text: $fullname)
+            .font(.title3)
+            .disableAutocorrection(true)
+            .textInputAutocapitalization(.never)
+        .textFieldify(withHeightScaling: 25)
+    }
+    var emailTextField: some View {
+        TextField("Email", text: $email)
+            .font(.title3)
+            .disableAutocorrection(true)
+            .textInputAutocapitalization(.never)
+        .textFieldify(withHeightScaling: 25)
     }
     var passwordTextField: some View {
         Group {
@@ -59,6 +81,11 @@ struct EmailSignup: View {
 
 struct EmailSignup_Previews: PreviewProvider {
     static var previews: some View {
-        EmailSignup(email: .constant(""), password: .constant(""))
+        EmailSignup(
+            username: .constant(""),
+            fullname: .constant(""),
+            email: .constant(""),
+            password: .constant("")
+        )
     }
 }

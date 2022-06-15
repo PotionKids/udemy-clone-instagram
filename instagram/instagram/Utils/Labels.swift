@@ -21,7 +21,13 @@ enum LabelType: String, CaseIterable {
     case eyeOpen = "eye"
     case eyeClosed = "eye.slash"
     case person = "person"
+    case personPlus = "person.badge.plus"
     case personInACircle = "person.circle"
+    case camera = "camera"
+    case cameraFill = "camera.fill"
+    case cameraCircle = "camera.circle"
+    case cameraCircleFill = "camera.circle.fill"
+    case plus = "plus"
 }
 
 enum LabelErrors: Error {

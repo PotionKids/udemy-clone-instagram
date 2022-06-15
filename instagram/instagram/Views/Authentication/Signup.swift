@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct Signup: View {
+    @State var username: String = ""
+    @State var fullname: String = ""
     @State var email: String = ""
     @State var password: String = ""
     @State var phone: String = ""
+    @State var mode: SignUpMode = .email
+    @State var selectedImage: UIImage?
+    @State var image: Image?
+    @State var showPicker = false
+    
     @Binding var showing: LandingScreen
     
     @EnvironmentObject var viewModel: AuthViewModel
@@ -20,12 +27,10 @@ struct Signup: View {
             VStack(spacing: screen.minDim / 13) {
                 Spacer()
                 VStack {
-                    profileImage
-                    CustomTabSwitcher(phone: $phone, email: $email, password: $password)
-                        .padding(.vertical)
-                    youMayReceiveSMS
+                    imageUploadOrProfilePic
+                    phoneOrEmailSignup
+                    smsNotificationAlert
                     nextButton
-                        .padding(.top)
                 }
                 .offset(y: -50)
                 Spacer()
@@ -35,22 +40,84 @@ struct Signup: View {
         }
     }
     
-    var profileImage: some View {
-        Image(systemName: LabelType.person.rawValue)
-            .font(.system(size: 100).weight(.ultraLight))
-            .frame(width: screen.minDim / 3, height: screen.minDim / 3, alignment: .center)
-            .overlay(
-                Circle()
-                    .stroke(lineWidth: 2.25))
+    
+    var smsNotificationAlert: some View {
+        Group {
+            mode == .phone ? youMayReceiveSMS : nil
+        }
+    }
+    @ViewBuilder
+    var imageUploadOrProfilePic: some View {
+        if let image = image {
+            image
+                .squarify().scale(by: 3)
+                .clipShape(Circle())
+        } else {
+            imageUploadButton
+        }
+    }
+    var imageUploadButton: some View {
+        Button {
+            showPicker.toggle()
+        } label: {
+            profileImage
+        }
+        .foregroundColor(.black)
+        .sheet(isPresented: $showPicker) {
+            loadImage()
+        } content: {
+            ImagePicker(selectedImage: $selectedImage)
+        }
     }
     
+    var phoneOrEmailSignup: some View {
+        CustomTabSwitcher(
+            phone: $phone,
+            username: $username,
+            fullname: $fullname,
+            email: $email,
+            password: $password,
+            mode: $mode
+        )
+            .padding(.vertical)
+    }
+    var profileImage: some View {
+        let width: CGFloat = screen.minDim / 3
+        return Image(systemName: LabelType.camera.rawValue)
+            .font(.system(size: 100).weight(.ultraLight))
+            .frame(width: width, height: width, alignment: .center)
+            .overlay(alignment: .center) {
+                Circle()
+                    .stroke(lineWidth: 2.25)
+                    .frame(width: screen.minDim / 2.5, height: screen.minDim / 2.5, alignment: .center)
+                Image(systemName: LabelType.plus.rawValue)
+                    .font(.system(size: 30).weight(.light))
+                    .offset(y: width / 30)
+            }
+    }
+    
+    
     var fieldsAreEmpty: Bool {
-        email.isEmpty && phone.isEmpty
+        switch mode {
+        case .phone:
+            return  phone.isEmpty
+        case .email:
+            return  username.isEmpty ||
+                    fullname.isEmpty ||
+                    email.isEmpty ||
+                    password.isEmpty
+        }
     }
     
     var nextButton: some View {
         Button {
-            viewModel.signup(withEmail: email, password: password)
+            viewModel.signup(
+                withUsername: username,
+                fullname: fullname,
+                email: email,
+                password: password,
+                image: selectedImage
+            )
         } label: {
             Text("Next")
                 .font(.title3.weight(.medium))
@@ -58,6 +125,7 @@ struct Signup: View {
                 .fullBlueButtonify(height: .height(scaling: 20, tolerance: 0.1))
                 .opacity(fieldsAreEmpty ? 0.3 : 1)
         }
+        .padding(.top)
     }
     
     var alreadyHaveAnAccountLogin: some View {
@@ -90,6 +158,13 @@ struct Signup: View {
             Text("Log in.")
         }
         
+    }
+}
+
+extension Signup {
+    func loadImage() {
+        guard let selectedImage = selectedImage else { return }
+        image = Image(uiImage: selectedImage)
     }
 }
 

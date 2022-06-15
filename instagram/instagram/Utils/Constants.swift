@@ -41,13 +41,10 @@ struct Constants {
                                             instaBlue
                                            ]
     
-//    #515BD4 - rgb(81, 91, 212)    Blue
-//
-//    #8134AF - rgb(129, 52, 175)   Purple
-//
-//    #DD2A7B - rgb(221, 42, 123)   Pink
-//
-//    #FEDA77 - rgb(254, 218, 119)  Yellow
-//
-//    #F58529 - rgb(245, 133, 41)   Orange
+    static let email = "email"
+    static let username = "username"
+    static let fullname = "fullname"
+    static let profileImageURL = "profileImageURL"
+    static let uID = "uid"
+    static let users = "users"
 }
