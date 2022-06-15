@@ -17,7 +17,15 @@ class AuthViewModel: ObservableObject {
     }
     
     func login(withLogin login: String, password: String) {
-        print("Login: \(login) | Password: \(password)")
+        Auth.auth().signIn(withEmail: login, password: password) { result, error in
+            if let error = error {
+                print("DEBUG: FAILURE: Login failed due to error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let user = result?.user else { return }
+            self.userSession = user
+        }
     }
     func signup(withUsername username: String, fullname: String, email: String, password: String, image: UIImage?) {
         guard let image = image else {
