@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeTabView: View {
     @State private var selected: Tab = .home
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     var body: some View {
         NavigationView {
             TabView(selection: $selected) {
@@ -38,10 +40,20 @@ struct HomeTabView: View {
                     }
                     .tag(Tab.profile)
             }
+            .navigationBarItems(leading: logoutButton)
             .navigationTitle(selected.rawValue)
             .navigationBarTitleDisplayMode(.inline)
             .accentColor(.black)
         }
+    }
+    
+    var logoutButton: some View {
+        Button {
+            authViewModel.logout()
+        } label: {
+            Text("Logout").font(.body.weight(.semibold))
+        }
+
     }
 }
 
