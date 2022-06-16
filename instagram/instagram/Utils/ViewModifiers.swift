@@ -353,9 +353,10 @@ struct SearchBarModifier: ViewModifier {
 struct TextFieldModifier: ViewModifier {
     var heightScaling: CGFloat = 30
     var background: UIColor = .systemGray5
+    var alignment: Alignment = .center
     func body(content: Content) -> some View {
         content
-            .frame(height: Constants.screen.height / heightScaling)
+            .frame(height: Constants.screen.height / heightScaling, alignment: alignment)
             .padding(Constants.screen.width / 50)
             .background(Color(background))
             .cornerRadius(Constants.screen.width / 50)
@@ -395,8 +396,8 @@ extension View {
         modifier(SearchBarModifier())
     }
     
-    func textFieldify(heightScaling: CGFloat = 30, backgroundColor: Color = Color(.systemGray5)) -> some View {
-        modifier(TextFieldModifier(heightScaling: heightScaling))
+    func textFieldify(heightScaling: CGFloat = 30, backgroundColor: UIColor = UIColor.systemGray5, alignment: Alignment = .center) -> some View {
+        modifier(TextFieldModifier(heightScaling: heightScaling, background: backgroundColor, alignment: alignment))
     }
     
     func textFieldify(withHeightScaling scaling: CGFloat) -> some View {

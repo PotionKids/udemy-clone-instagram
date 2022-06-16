@@ -17,33 +17,12 @@ struct UploadView: View {
     var body: some View {
         if let image = postImage {
             VStack {
-                HStack {
-                    image
-                        .squarify()
-                        .scale(by: 3)
-                    TextField("Enter your caption...", text: $caption)
-                        .textFieldify(withHeightScaling: 7.2)
-                }
-                .padding(.vertical)
-                Button  {
-                    //
-                } label: {
-                    Text("Post")
-                        .profileFullButtonify()
-                        .blueButtonify()
-                }
+                postImageAndCaption(image: image)
+                postButton
             }
             .padding()
         } else {
-            Button {
-                showPicker.toggle()
-            } label: {
-                VStack {
-                    Image(systemName: "plus.circle").font(.system(size: 150).weight(.ultraLight))
-                    Text("Photo").font(.title3)
-                }
-            }
-            .buttonStyle(PlainButtonStyle())
+            imageUploadButton
             .sheet(isPresented: $showPicker) {
                 loadImage()
             } content: {
@@ -51,6 +30,47 @@ struct UploadView: View {
             }
 
         }
+    }
+    
+    func postImageAndCaption(image: Image) -> some View {
+        HStack {
+            scaledPost(image: image)
+            captionTextField
+        }
+        .padding(.vertical)
+    }
+    
+    func scaledPost(image: Image) -> some View {
+        image
+            .squarify()
+            .scale(by: 3)
+    }
+    var captionTextField: some View {
+        TextField("Enter your caption...", text: $caption)
+            .frame(alignment: .topLeading)
+            .textFieldify(heightScaling: 7.2, alignment: .topLeading)
+    }
+    var postButton: some View {
+        Button  {
+            //
+        } label: {
+            Text("Post")
+                .font(.body.weight(.medium))
+                .foregroundColor(.white)
+                .fullBlueButtonify()
+        }
+    }
+    
+    var imageUploadButton: some View {
+        Button {
+            showPicker.toggle()
+        } label: {
+            VStack {
+                Image(systemName: "plus.circle").font(.system(size: 150).weight(.ultraLight))
+                Text("Photo").font(.title3)
+            }
+        }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
