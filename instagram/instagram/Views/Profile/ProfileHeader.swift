@@ -12,7 +12,7 @@ struct ProfileHeader: View {
     
     var body: some View {
         HStack {
-            Labels.profileImage(for: UsersExample.galGadot)
+            Labels.profileImageExample(for: UsersExample.galGadot)
             Spacer()
             UserStatView(stat: .posts, count: user.postCount)
             Spacer()

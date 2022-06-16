@@ -14,13 +14,13 @@ struct NotificationCell: View {
     @State private var showPostImage: Bool = true
     var body: some View {
         HStack(spacing: screen.minDim / 20) {
-            Labels.notificationProfilePic(for: user)
+            Labels.notificationProfilePicExample(for: user)
             Text(user.name).font(.system(size: 16).weight(.semibold))
             +
             Text(" started following you").font(.subheadline)
             Spacer()
             if showPostImage {
-                Labels.notificationPostImage(for: post)
+                Labels.notificationPostImageExample(for: post)
             } else {
                 Labels.followButtonLabel(if: isFollowed)
             }

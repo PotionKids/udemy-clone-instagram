@@ -11,7 +11,7 @@ struct StoryView: View {
     var post = PostsExample.galGadotStory2
     var body: some View {
         VStack {
-            Labels.profileStoryThumbnail(for: post)
+            Labels.profileStoryThumbnailExample(for: post)
             Text(post.storyName ?? "")
                 .font(.subheadline.weight(.light))
         }

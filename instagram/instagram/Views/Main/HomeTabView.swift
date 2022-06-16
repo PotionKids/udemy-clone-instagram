@@ -19,6 +19,11 @@ struct HomeTabView: View {
                         Image(systemName: "house.fill")
                     }
                     .tag(Tab.home)
+//                SearchViewExample()
+//                    .tabItem {
+//                        Image(systemName: "magnifyingglass")
+//                    }
+//                    .tag(Tab.search)
                 SearchView()
                     .tabItem {
                         Image(systemName: "magnifyingglass")

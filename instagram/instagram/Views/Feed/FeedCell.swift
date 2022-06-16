@@ -32,10 +32,10 @@ struct FeedCell: View {
             .padding(.bottom)
     }
     var content: some View {
-        Labels.postContentLabel(for: post)
+        Labels.postContentLabelExample(for: post)
     }
     var poster: some View {
-        Labels.posterLabel(for: user)
+        Labels.posterLabelExample(for: user)
             .padding([.bottom, .horizontal], screen.width / 25)
             .padding(.top, screen.width / 39)
     }

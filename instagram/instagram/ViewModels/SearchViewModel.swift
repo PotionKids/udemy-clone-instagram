@@ -16,6 +16,7 @@ class SearchViewModel: ObservableObject {
     
     func fetchUsers() {
         Constants.collectionUsers.getDocuments { snapshot, _ in
+            print("DEBUG: Inside Collection Users Documents.")
             guard let documents = snapshot?.documents else {
                 print("DEBUG: FAILURE: Documents not found in Firestore.")
                 return

@@ -20,7 +20,7 @@ struct PostGridView: View {
                     NavigationLink {
                         FeedView()
                     } label: {
-                        Labels.postGridLabel(for: post, withScaling: 3)
+                        Labels.postGridLabelExample(for: post, withScaling: 3)
                     }
                     .navigationBarTitleDisplayMode(.inline)
                 }

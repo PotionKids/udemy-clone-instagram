@@ -13,8 +13,11 @@
 		EE11EF01285928C600E3D6A7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE11EF00285928C600E3D6A7 /* AuthViewModel.swift */; };
 		EE11EF03285A28AF00E3D6A7 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE11EF02285A28AF00E3D6A7 /* ImageUploader.swift */; };
 		EE18FE5928551327008B96FA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE18FE5828551327008B96FA /* Login.swift */; };
+		EE3D473D285BD5F600079CA9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D473C285BD5F600079CA9 /* UserCell.swift */; };
+		EE3D473F285BD62200079CA9 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D473E285BD62200079CA9 /* UserList.swift */; };
+		EE3D4741285BE0AE00079CA9 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D4740285BE0AE00079CA9 /* SearchView.swift */; };
 		EE47C1C3285B59EF00D33B2F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE47C1C2285B59EF00D33B2F /* SearchViewModel.swift */; };
-		EE99C0B6284F6EB500426F6C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B5284F6EB500426F6C /* SearchView.swift */; };
+		EE99C0B6284F6EB500426F6C /* SearchViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B5284F6EB500426F6C /* SearchViewExample.swift */; };
 		EE99C0B8284F6ECC00426F6C /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B7284F6ECC00426F6C /* NotificationsView.swift */; };
 		EE99C0BA284F6EE600426F6C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B9284F6EE600426F6C /* ProfileView.swift */; };
 		EE99C0BC284F6F0100426F6C /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0BB284F6F0100426F6C /* UploadView.swift */; };
@@ -25,8 +28,8 @@
 		EE99C0C6284FC73B00426F6C /* PostExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0C5284FC73B00426F6C /* PostExample.swift */; };
 		EE99C0C8285003DD00426F6C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0C7285003DD00426F6C /* SearchBar.swift */; };
 		EE99C0CA28500C1700426F6C /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0C928500C1700426F6C /* PostGridView.swift */; };
-		EE99C0CC28500F8C00426F6C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0CB28500F8C00426F6C /* UserCell.swift */; };
-		EE99C0CE28500FAB00426F6C /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0CD28500FAB00426F6C /* UserListView.swift */; };
+		EE99C0CC28500F8C00426F6C /* UserCellExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0CB28500F8C00426F6C /* UserCellExample.swift */; };
+		EE99C0CE28500FAB00426F6C /* UserListViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0CD28500FAB00426F6C /* UserListViewExample.swift */; };
 		EEBA25EC285417B0002F4E2F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBA25EB285417B0002F4E2F /* ImagePicker.swift */; };
 		EEBA25EE285426E2002F4E2F /* Landing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBA25ED285426E2002F4E2F /* Landing.swift */; };
 		EEBA25F0285426F5002F4E2F /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBA25EF285426F5002F4E2F /* Signup.swift */; };
@@ -67,8 +70,11 @@
 		EE11EF00285928C600E3D6A7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		EE11EF02285A28AF00E3D6A7 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		EE18FE5828551327008B96FA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		EE3D473C285BD5F600079CA9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		EE3D473E285BD62200079CA9 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
+		EE3D4740285BE0AE00079CA9 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		EE47C1C2285B59EF00D33B2F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		EE99C0B5284F6EB500426F6C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		EE99C0B5284F6EB500426F6C /* SearchViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewExample.swift; sourceTree = "<group>"; };
 		EE99C0B7284F6ECC00426F6C /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		EE99C0B9284F6EE600426F6C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EE99C0BB284F6F0100426F6C /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
@@ -79,8 +85,8 @@
 		EE99C0C5284FC73B00426F6C /* PostExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostExample.swift; sourceTree = "<group>"; };
 		EE99C0C7285003DD00426F6C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		EE99C0C928500C1700426F6C /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
-		EE99C0CB28500F8C00426F6C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		EE99C0CD28500FAB00426F6C /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		EE99C0CB28500F8C00426F6C /* UserCellExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellExample.swift; sourceTree = "<group>"; };
+		EE99C0CD28500FAB00426F6C /* UserListViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewExample.swift; sourceTree = "<group>"; };
 		EEBA25EB285417B0002F4E2F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EEBA25ED285426E2002F4E2F /* Landing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landing.swift; sourceTree = "<group>"; };
 		EEBA25EF285426F5002F4E2F /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
@@ -291,8 +297,9 @@
 		EEE87A7E284F6C190043F019 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				EE99C0B5284F6EB500426F6C /* SearchView.swift */,
+				EE99C0B5284F6EB500426F6C /* SearchViewExample.swift */,
 				EE99C0C7285003DD00426F6C /* SearchBar.swift */,
+				EE3D4740285BE0AE00079CA9 /* SearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -327,8 +334,10 @@
 			isa = PBXGroup;
 			children = (
 				EE99C0C928500C1700426F6C /* PostGridView.swift */,
-				EE99C0CB28500F8C00426F6C /* UserCell.swift */,
-				EE99C0CD28500FAB00426F6C /* UserListView.swift */,
+				EE99C0CB28500F8C00426F6C /* UserCellExample.swift */,
+				EE99C0CD28500FAB00426F6C /* UserListViewExample.swift */,
+				EE3D473C285BD5F600079CA9 /* UserCell.swift */,
+				EE3D473E285BD62200079CA9 /* UserList.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -450,9 +459,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE2C7A12858B1A6009BF5B6 /* PhoneSignup.swift in Sources */,
-				EE99C0CE28500FAB00426F6C /* UserListView.swift in Sources */,
+				EE99C0CE28500FAB00426F6C /* UserListViewExample.swift in Sources */,
 				EEC86B182852988700F46820 /* Constants.swift in Sources */,
-				EE99C0B6284F6EB500426F6C /* SearchView.swift in Sources */,
+				EE99C0B6284F6EB500426F6C /* SearchViewExample.swift in Sources */,
 				EE18FE5928551327008B96FA /* Login.swift in Sources */,
 				EE11EF03285A28AF00E3D6A7 /* ImageUploader.swift in Sources */,
 				EEE2C7A52858BC8F009BF5B6 /* CountryCodes.swift in Sources */,
@@ -469,22 +478,25 @@
 				EEC86B222852B6B400F46820 /* ProfileButtons.swift in Sources */,
 				EEE2C79F2858AA10009BF5B6 /* CustomTabSwitcher.swift in Sources */,
 				EEE2C7A72858C22A009BF5B6 /* PhoneNumberTextFieldView.swift in Sources */,
+				EE3D473D285BD5F600079CA9 /* UserCell.swift in Sources */,
 				EE99C0C6284FC73B00426F6C /* PostExample.swift in Sources */,
 				EE99C0BC284F6F0100426F6C /* UploadView.swift in Sources */,
 				EEE87A69284F69BD0043F019 /* ContentView.swift in Sources */,
 				EEC86B1E2852B54200F46820 /* ProfileHeader.swift in Sources */,
 				EE99C0C8285003DD00426F6C /* SearchBar.swift in Sources */,
-				EE99C0CC28500F8C00426F6C /* UserCell.swift in Sources */,
+				EE99C0CC28500F8C00426F6C /* UserCellExample.swift in Sources */,
 				EEC86B14285220D800F46820 /* NotificationCell.swift in Sources */,
 				EE99C0CA28500C1700426F6C /* PostGridView.swift in Sources */,
 				EE99C0C0284FB37700426F6C /* Extensions.swift in Sources */,
 				EEBEE17C285A8CE700152AC4 /* User.swift in Sources */,
 				EEE87A67284F69BD0043F019 /* instagramApp.swift in Sources */,
+				EE3D4741285BE0AE00079CA9 /* SearchView.swift in Sources */,
 				EEC86B242852C15100F46820 /* Stories.swift in Sources */,
 				EEC86B1A2852A70E00F46820 /* ViewModifiers.swift in Sources */,
 				EEC86B202852B57C00F46820 /* UserStatView.swift in Sources */,
 				EEE2C7A32858B1B4009BF5B6 /* EmailSignup.swift in Sources */,
 				EE99C0C4284FC4FD00426F6C /* UserExample.swift in Sources */,
+				EE3D473F285BD62200079CA9 /* UserList.swift in Sources */,
 				EEBA25F228542706002F4E2F /* PasswordReset.swift in Sources */,
 				EE99C0BA284F6EE600426F6C /* ProfileView.swift in Sources */,
 				EE99C0B8284F6ECC00426F6C /* NotificationsView.swift in Sources */,

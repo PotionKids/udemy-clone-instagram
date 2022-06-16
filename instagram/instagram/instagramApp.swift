@@ -17,8 +17,9 @@ struct instagramApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            ContentView().environmentObject(AuthViewModel.shared)
-            SearchView()
+            ContentView().environmentObject(AuthViewModel.shared)
+//            SearchViewExample()
+//            SearchView()
         }
     }
 }

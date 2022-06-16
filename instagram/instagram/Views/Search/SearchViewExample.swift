@@ -2,12 +2,12 @@
 //  SearchView.swift
 //  instagram
 //
-//  Created by Krishnaswami Rajendren on 6/17/22.
+//  Created by Krishnaswami Rajendren on 6/7/22.
 //
 
 import SwiftUI
 
-struct SearchView: View {
+struct SearchViewExample: View {
     @State private var searchText: String = ""
     @State private var inSearchMode: Bool = false
     @ObservedObject var viewModel = SearchViewModel()
@@ -19,7 +19,7 @@ struct SearchView: View {
                     SearchBar(text: $searchText, isEditing: $inSearchMode)
                         .padding()
                     if inSearchMode {
-                        UserList(viewModel: viewModel)
+                        UserListViewExample(viewModel: viewModel)
                     }
                     else {
                         PostGridView()
@@ -30,8 +30,8 @@ struct SearchView: View {
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
+struct SearchViewExample_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView()
+        SearchViewExample()
     }
 }

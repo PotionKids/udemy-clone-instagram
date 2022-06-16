@@ -1,5 +1,5 @@
 //
-//  UserListView.swift
+//  UserListViewExample.swift
 //  instagram
 //
 //  Created by Krishnaswami Rajendren on 6/8/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserListView: View {
+struct UserListViewExample: View {
     @ObservedObject var viewModel: SearchViewModel
     var users: [UserExample] = UsersExample.all
     var body: some View {
@@ -16,7 +16,7 @@ struct UserListView: View {
                 NavigationLink {
                     FeedView()
                 } label: {
-                    UserCell(user: user)
+                    UserCellExample(user: user)
                         .padding(.horizontal)
                 }
                 .navigationBarTitleDisplayMode(.inline)

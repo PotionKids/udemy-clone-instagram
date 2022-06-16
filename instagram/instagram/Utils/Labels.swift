@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import Kingfisher
 
 enum LabelType: String, CaseIterable {
     case like = "heart.fill"
@@ -87,11 +88,11 @@ struct Labels {
         Image(systemName: label.rawValue).foregroundColor(color)
     }
     
-    static func userNameLabel(for user: UserExample) -> some View {
-        userNameLabel(for: user, with: userNameLabelFont)
+    static func userNameLabelExample(for user: UserExample) -> some View {
+        userNameLabelExample(for: user, with: userNameLabelFont)
     }
     
-    static func userNameLabel(for user: UserExample, with font: Font) -> some View {
+    static func userNameLabelExample(for user: UserExample, with font: Font) -> some View {
         HStack {
             Text(user.name)
             if user.isVerified {
@@ -101,11 +102,50 @@ struct Labels {
         .font(font.weight(.semibold))
     }
     
-    static func userFullNameLabel(for user: UserExample) -> some View {
+    static func userNameLabel(for user: User) -> some View {
+        userNameLabel(for: user, with: userNameLabelFont)
+    }
+    
+//    static func userNameLabel(for user: User, with font: Font) -> some View {
+//        HStack {
+//            Text(user.name)
+//            if user.isVerified {
+//                image(for: .verified, with: .blue)
+//            }
+//        }
+//        .font(font.weight(.semibold))
+//    }
+    static func userNameLabel(for user: User, with font: Font) -> some View {
+        HStack {
+            Text(user.username)
+            if true {
+                image(for: .verified, with: .blue)
+            }
+        }
+        .font(font.weight(.semibold))
+    }
+    
+    
+    
+    
+    static func userFullNameLabelExample(for user: UserExample) -> some View {
         Text(user.fullname)
     }
     
-    static func posterLabel(for user: UserExample) -> some View {
+    static func userFullNameLabel(for user: User) -> some View {
+        Text(user.fullname)
+    }
+    
+    static func posterLabelExample(for user: UserExample) -> some View {
+        HStack(alignment: .center, spacing: screen.width / 50) {
+            posterProfilePicExample(for: user)
+            userNameLabelExample(for: user)
+            Text("44*m*").font(.body.weight(.thin))
+            Spacer()
+        }
+    }
+    
+    static func posterLabel(for user: User) -> some View {
         HStack(alignment: .center, spacing: screen.width / 50) {
             posterProfilePic(for: user)
             userNameLabel(for: user)
@@ -113,6 +153,9 @@ struct Labels {
             Spacer()
         }
     }
+    
+    
+    
     
     static func postDescriptionLabel(for user: UserExample, andPost post: PostExample) -> some View {
         Text("**\(user.name)** \(post.description)")
@@ -128,7 +171,7 @@ struct Labels {
     }
     
     
-    static func profilePic(for user: UserExample, withScaling scaling: CGFloat) -> some View {
+    static func profilePicExample(for user: UserExample, withScaling scaling: CGFloat) -> some View {
         Image(user.image)
             .resizable()
             .scaledToFit()
@@ -136,15 +179,50 @@ struct Labels {
             .frame(width: screen.minDim / scaling, height: screen.minDim / scaling)
     }
     
-    static func posterProfilePic(for user: UserExample) -> some View {
+    static func profilePic(for user: User, withScaling scaling: CGFloat) -> some View {
+        KFImage(URL(string: user.profileImageURL))
+            .resizable()
+            .scaledToFit()
+            .clipShape(Circle())
+            .frame(width: screen.minDim / scaling, height: screen.minDim / scaling)
+    }
+    
+    
+    
+    static func posterProfilePicExample(for user: UserExample) -> some View {
+        profilePicExample(for: user, withScaling: 8)
+    }
+    
+    static func posterProfilePic(for user: User) -> some View {
         profilePic(for: user, withScaling: 8)
     }
     
-    static func notificationProfilePic(for user: UserExample) -> some View {
+    
+    
+    
+    static func notificationProfilePicExample(for user: UserExample) -> some View {
+        profilePicExample(for: user, withScaling: 12)
+    }
+    
+    static func notificationProfilePic(for user: User) -> some View {
         profilePic(for: user, withScaling: 12)
     }
     
-    static func userCellLabel(for user: UserExample) -> some View {
+    
+    
+    static func userCellLabelExample(for user: UserExample) -> some View {
+        HStack {
+            userCellProfilePicExample(for: user)
+            VStack(alignment: .leading, spacing: screen.minDim / 75) {
+                userNameLabelExample(for: user)
+                userFullNameLabelExample(for: user)
+            }
+            Spacer()
+        }
+        .foregroundColor(.black)
+    }
+    
+    static func userCellLabel(for user: User) -> some View {
         HStack {
             userCellProfilePic(for: user)
             VStack(alignment: .leading, spacing: screen.minDim / 75) {
@@ -156,9 +234,19 @@ struct Labels {
         .foregroundColor(.black)
     }
     
-    static func userCellProfilePic(for user: UserExample) -> some View {
+    
+    
+    
+    static func userCellProfilePicExample(for user: UserExample) -> some View {
+        profilePicExample(for: user, withScaling: 8)
+    }
+    
+    static func userCellProfilePic(for user: User) -> some View {
         profilePic(for: user, withScaling: 8)
     }
+    
+    
+    
     
     static func imageLabel(for name: String) -> some View {
         Image(name)
@@ -172,12 +260,14 @@ struct Labels {
             .scale(by: scaling)
     }
     
-    static func postContentLabel(for post: PostExample) -> some View {
+    static func postContentLabelExample(for post: PostExample) -> some View {
         imageLabel(for: post.image)
             .frame(maxWidth: screen.width)
     }
     
-    static func postGridLabel(for post: PostExample, withScaling scaling: CGFloat) -> some View {
+    
+    
+    static func postGridLabelExample(for post: PostExample, withScaling scaling: CGFloat) -> some View {
         return squareImageLabel(for: post.image, withScaling: 3)
     }
     
@@ -192,12 +282,26 @@ struct Labels {
             .cornerRadius(height / 2)
     }
     
-    static func notificationPostImage(for post: PostExample) -> some View {
+    static func notificationPostImageExample(for post: PostExample) -> some View {
         imageLabel(for: post.image)
             .scale(by: 10)
     }
     
-    static func profileImage(for user: UserExample, hasStory: Bool = true) -> some View {
+    static func profileImageExample(for user: UserExample, hasStory: Bool = true) -> some View {
+        ZStack(alignment: .center) {
+            profilePicExample(for: user, withScaling: 4.3)
+            if hasStory {
+                Circle()
+                    .strokeBorder(
+                        AngularGradient(gradient: Gradient(colors: Constants.instaColorsGradient), center: .center, startAngle: .zero, endAngle: .degrees(360)),
+                        lineWidth: screen.minDim / 130
+                    )
+                    .scale(by: 3.85)
+            }
+        }
+    }
+    
+    static func profileImage(for user: User, hasStory: Bool = true) -> some View {
         ZStack(alignment: .center) {
             profilePic(for: user, withScaling: 4.3)
             if hasStory {
@@ -211,7 +315,9 @@ struct Labels {
         }
     }
     
-    static func profileStoryThumbnail(for post: PostExample) -> some View {
+    
+    
+    static func profileStoryThumbnailExample(for post: PostExample) -> some View {
         ZStack(alignment: .center) {
             Image(post.image)
                 .resizable()
