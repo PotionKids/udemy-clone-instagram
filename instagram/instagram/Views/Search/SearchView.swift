@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @State private var searchText: String = ""
     @State private var inSearchMode: Bool = false
+    @ObservedObject var viewModel = SearchViewModel()
     
     var body: some View {
         NavigationView {
@@ -18,7 +19,7 @@ struct SearchView: View {
                     SearchBar(text: $searchText, isEditing: $inSearchMode)
                         .padding()
                     if inSearchMode {
-                        UserListView()
+                        UserListView(viewModel: viewModel)
                     }
                     else {
                         PostGridView()

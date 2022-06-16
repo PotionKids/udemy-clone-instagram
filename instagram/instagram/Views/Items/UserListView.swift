@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserListView: View {
+    @ObservedObject var viewModel: SearchViewModel
     var users: [UserExample] = UsersExample.all
     var body: some View {
         LazyVStack(spacing: screen.minDim / 30) {
@@ -21,11 +22,5 @@ struct UserListView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
         }
-    }
-}
-
-struct UserListView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserListView()
     }
 }
