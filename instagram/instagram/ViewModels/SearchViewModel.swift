@@ -16,7 +16,6 @@ class SearchViewModel: ObservableObject {
     
     func fetchUsers() {
         Constants.collectionUsers.getDocuments { snapshot, _ in
-            print("DEBUG: Inside Collection Users Documents.")
             guard let documents = snapshot?.documents else {
                 print("DEBUG: FAILURE: Documents not found in Firestore.")
                 return
@@ -24,5 +23,13 @@ class SearchViewModel: ObservableObject {
             self.users = documents.compactMap { try? $0.data(as: User.self) }
             print("DEBUG: SUCCESS: Users Fetched: \(self.users)")
         }
+    }
+    
+    func search(users: [User], withQuery query: String) -> [User] {
+        users.filter { $0.searchTerm.doesContain(query.lowercased()) }
+    }
+
+    func search(query: String) -> [User] {
+        self.search(users: self.users, withQuery: query)
     }
 }

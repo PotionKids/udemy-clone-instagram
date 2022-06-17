@@ -9,9 +9,15 @@ import SwiftUI
 
 struct UserList: View {
     @ObservedObject var viewModel: SearchViewModel
+    @Binding var searchText: String
+    
+    var users: [User] {
+        viewModel.search(query: searchText)
+    }
+    
     var body: some View {
         LazyVStack(spacing: screen.minDim / 30) {
-            ForEach(viewModel.users) { user in
+            ForEach(users) { user in
                 NavigationLink {
                     FeedView()
                 } label: {

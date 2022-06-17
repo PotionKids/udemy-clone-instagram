@@ -34,3 +34,9 @@ extension View {
     }
 }
 //#endif
+
+extension String {
+    func doesContain(_ other: String) -> Bool {
+        other.isEmpty || self.contains(other)
+    }
+}

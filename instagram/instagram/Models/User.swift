@@ -15,9 +15,7 @@ struct User: Identifiable, Codable {
     let email: String
     let profileImageURL: String
     
-//    var isVerified: Bool = true
-//    
-//    var name: String {
-//        username
-//    }
+    var searchTerm: String {
+        (username + " " + fullname).lowercased()
+    }
 }
