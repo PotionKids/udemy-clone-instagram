@@ -14,6 +14,9 @@ class AuthViewModel: ObservableObject {
     @Published var user: User?
     static let shared = AuthViewModel()
     
+    static var currentUID: String? {
+        shared.userSession?.uid
+    }
     
     init() {
         userSession = Auth.auth().currentUser

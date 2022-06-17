@@ -13,38 +13,39 @@ struct ProfileButtons: View {
     var body: some View {
         HStack {
             if isCurrentUser {
-                Button {
-                    
-                } label: {
-                    Labels.profileEditButtonLabel
-                }
+                buttonForCurrentUser
             }
             else {
-                HStack {
-                    if isFollowedByCurrentUser {
-                        followingButton.background(.white)
-                    } else {
-                        followButton
-                    }
-                    Spacer()
-                    messageButton
-                }
+                buttonsForOtherUser
             }
         }
         .profileBottomPaddify()
+    }
+    
+    var buttonForCurrentUser: some View {
+        Button {
+            
+        } label: {
+            Labels.profileEditButtonLabel
+        }
+    }
+    
+    var buttonsForOtherUser: some View {
+        HStack {
+            if isFollowedByCurrentUser {
+                followingButton.background(.white)
+            } else {
+                followButton
+            }
+            Spacer()
+            messageButton
+        }
     }
     
     var followingButton: some View {
         Button {
             isFollowedByCurrentUser = false
         } label: {
-//            HStack{
-//                Text("Following")
-//                Image(systemName: "chevron.down")
-//                .font(.caption.weight(.regular))
-//            }
-//            .foregroundColor(.white)
-//            .halfBlueButtonify()
             Labels.profileFollowingButtonLabel
         }
     }
@@ -66,9 +67,3 @@ struct ProfileButtons: View {
         }
     }
 }
-
-//struct ProfileButtons_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProfileButtons(isFollowedByCurrentUser: .constant(true), isCurrentUser: .constant(true))
-//    }
-//}

@@ -15,6 +15,10 @@ struct User: Equatable, Identifiable, Codable {
     let email: String
     let profileImageURL: String
     
+    var isCurrent: Bool {
+        id == AuthViewModel.currentUID
+    }
+    
     var searchTerm: String {
         (username + " " + fullname).lowercased()
     }

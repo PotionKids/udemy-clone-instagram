@@ -19,7 +19,7 @@ struct SearchView: View {
                     SearchBar(text: $searchText, isEditing: $inSearchMode)
                         .padding()
                     if inSearchMode {
-                        UserList(viewModel: viewModel, searchText: $searchText)
+                        UserList(searchViewModel: viewModel, searchText: $searchText)
                     }
                     else {
                         PostGridView()

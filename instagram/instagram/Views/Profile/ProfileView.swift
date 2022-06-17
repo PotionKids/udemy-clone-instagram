@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct ProfileView: View {
-    var viewer: User
     var user: User
     @State private var isFollowedByCurrentUser = false
-    
-    var isCurrentUser: Bool {
-        viewer == user
-    }
     
     var body: some View {
         return ScrollView {
@@ -24,7 +19,7 @@ struct ProfileView: View {
                     fullname
                     bio
                     followedBy
-                    ProfileButtons(isFollowedByCurrentUser: $isFollowedByCurrentUser, isCurrentUser: isCurrentUser)
+                    ProfileButtons(isFollowedByCurrentUser: $isFollowedByCurrentUser, isCurrentUser: user.isCurrent)
                     Stories(user: user)
                 }
                 .padding(.horizontal, screen.minDim / 30)
