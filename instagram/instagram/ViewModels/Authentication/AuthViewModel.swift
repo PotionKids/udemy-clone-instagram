@@ -11,7 +11,9 @@ import FirebaseFirestoreSwift
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
+    @Published var user: User?
     static let shared = AuthViewModel()
+    
     
     init() {
         userSession = Auth.auth().currentUser
@@ -27,6 +29,7 @@ class AuthViewModel: ObservableObject {
             
             guard let user = result?.user else { return }
             self.userSession = user
+            self.fetch()
         }
     }
     func signup(withUsername username: String, fullname: String, email: String, password: String, image: UIImage?) {
@@ -54,6 +57,7 @@ class AuthViewModel: ObservableObject {
                 Firestore.firestore().collection(Constants.users).document(user.uid).setData(data) { _ in
                     print("DEBUG: SUCESS: Successfully uploaded user data.")
                     self.userSession = user
+                    self.fetch()
                 }
             }
         }
@@ -71,6 +75,7 @@ class AuthViewModel: ObservableObject {
         Constants.collectionUsers.document(uid).getDocument { snapshot, _ in
             guard let user = try? snapshot?.data(as: User.self) else { return }
             print("DEBUG: User fetched: \(user)")
+            self.user = user
         }
     }
 }

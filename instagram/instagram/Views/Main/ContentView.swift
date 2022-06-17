@@ -15,7 +15,11 @@ struct ContentView: View {
             if viewModel.userSession == nil {
                 Opening()
             } else {
-                HomeTabView()
+                if let user = viewModel.user {
+                    HomeTabView(user: user)
+                } else {
+                    FeedView()
+                }
             }
         }
     }

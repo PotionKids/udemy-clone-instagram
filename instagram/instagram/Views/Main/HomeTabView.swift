@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HomeTabView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
     @State private var selected: Tab = .home
-    @EnvironmentObject var authViewModel: AuthViewModel
+    var user: User
     
     var body: some View {
         NavigationView {
@@ -19,11 +20,6 @@ struct HomeTabView: View {
                         Image(systemName: "house.fill")
                     }
                     .tag(Tab.home)
-//                SearchViewExample()
-//                    .tabItem {
-//                        Image(systemName: "magnifyingglass")
-//                    }
-//                    .tag(Tab.search)
                 SearchView()
                     .tabItem {
                         Image(systemName: "magnifyingglass")
@@ -39,7 +35,7 @@ struct HomeTabView: View {
                         Image(systemName: "suit.heart")
                     }
                     .tag(Tab.notifications)
-                ProfileView()
+                ProfileView(user: user)
                     .tabItem {
                         Image(systemName: "person")
                     }
@@ -54,7 +50,7 @@ struct HomeTabView: View {
     
     var logoutButton: some View {
         Button {
-            authViewModel.logout()
+            viewModel.logout()
         } label: {
             Text("Logout").font(.body.weight(.semibold))
         }
@@ -70,8 +66,8 @@ enum Tab: String, CaseIterable {
     case profile = "Profile"
 }
 
-struct HomeTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeTabView()
-    }
-}
+//struct HomeTabView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeTabView()
+//    }
+//}

@@ -19,7 +19,7 @@ struct UserList: View {
         LazyVStack(spacing: screen.minDim / 30) {
             ForEach(users) { user in
                 NavigationLink {
-                    FeedView()
+                    ProfileView(user: user)
                 } label: {
                     UserCell(user: user)
                         .padding(.horizontal)

@@ -2,17 +2,17 @@
 //  ProfileHeader.swift
 //  instagram
 //
-//  Created by Krishnaswami Rajendren on 6/17/22.
+//  Created by Krishnaswami Rajendren on 6/10/22.
 //
 
 import SwiftUI
 
-struct ProfileHeader: View {
-    var user: User
+struct ProfileHeaderExample: View {
+    var user = UsersExample.galGadot
     
     var body: some View {
         HStack {
-            Labels.profileImage(for: user)
+            Labels.profileImageExample(for: UsersExample.galGadot)
             Spacer()
             UserStatView(stat: .posts, count: user.postCount)
             Spacer()

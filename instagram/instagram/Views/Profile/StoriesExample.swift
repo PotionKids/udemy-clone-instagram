@@ -2,13 +2,13 @@
 //  Stories.swift
 //  instagram
 //
-//  Created by Krishnaswami Rajendren on 6/17/22.
+//  Created by Krishnaswami Rajendren on 6/10/22.
 //
 
 import SwiftUI
 
-struct Stories: View {
-    var user: User
+struct StoriesExample: View {
+    var user = UsersExample.galGadot
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
@@ -19,5 +19,11 @@ struct Stories: View {
         }
         .frame(maxWidth: screen.width, maxHeight: screen.minDim / 3.5)
         .profileBottomPaddify()
+    }
+}
+
+struct Stories_Previews: PreviewProvider {
+    static var previews: some View {
+        StoriesExample()
     }
 }
