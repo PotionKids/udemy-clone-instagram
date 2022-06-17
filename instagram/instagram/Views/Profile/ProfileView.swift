@@ -9,17 +9,23 @@ import SwiftUI
 
 struct ProfileView: View {
     var user: User
+    @ObservedObject var viewModel: ProfileViewModel
     @State private var isFollowedByCurrentUser = false
+    
+    init(user: User) {
+        self.user = user
+        self.viewModel = ProfileViewModel(user: user)
+    }
     
     var body: some View {
         return ScrollView {
             VStack {
                 VStack(alignment: .leading) {
-                    ProfileHeader(user: user)
+                    ProfileHeader(viewModel: viewModel)
                     fullname
                     bio
                     followedBy
-                    ProfileButtons(isFollowedByCurrentUser: $isFollowedByCurrentUser, isCurrentUser: user.isCurrent)
+                    ProfileButtons(viewModel: viewModel, isFollowedByCurrentUser: $isFollowedByCurrentUser)
                     Stories(user: user)
                 }
                 .padding(.horizontal, screen.minDim / 30)

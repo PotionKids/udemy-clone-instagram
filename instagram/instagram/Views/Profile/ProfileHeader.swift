@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ProfileHeader: View {
-    var user: User
+    @ObservedObject var viewModel: ProfileViewModel
     
     var body: some View {
         HStack {
-            Labels.profileImage(for: user)
+            Labels.profileImage(for: viewModel.user)
             Spacer()
-            UserStatView(stat: .posts, count: user.postCount)
+            UserStatView(stat: .posts, count: viewModel.user.postCount)
             Spacer()
-            UserStatView(stat: .followers, count: user.followers)
+            UserStatView(stat: .followers, count: viewModel.user.followers)
             Spacer()
-            UserStatView(stat: .following, count: user.following)
+            UserStatView(stat: .following, count: viewModel.user.following)
         }
     }
 }
