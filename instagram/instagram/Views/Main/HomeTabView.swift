@@ -35,7 +35,7 @@ struct HomeTabView: View {
                         Image(systemName: "suit.heart")
                     }
                     .tag(Tab.notifications)
-                ProfileView(user: user)
+                ProfileView(viewer: user, user: user)
                     .tabItem {
                         Image(systemName: "person")
                     }

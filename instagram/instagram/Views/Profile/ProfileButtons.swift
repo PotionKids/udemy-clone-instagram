@@ -9,11 +9,15 @@ import SwiftUI
 
 struct ProfileButtons: View {
     @Binding var isFollowedByCurrentUser: Bool
-    @Binding var isCurrentUser: Bool
+    var isCurrentUser: Bool
     var body: some View {
         HStack {
             if isCurrentUser {
-                Labels.profileEditButtonLabel
+                Button {
+                    
+                } label: {
+                    Labels.profileEditButtonLabel
+                }
             }
             else {
                 HStack {
@@ -23,7 +27,7 @@ struct ProfileButtons: View {
                         followButton
                     }
                     Spacer()
-                    Labels.profileMessageButtonLabel
+                    messageButton
                 }
             }
         }
@@ -34,6 +38,13 @@ struct ProfileButtons: View {
         Button {
             isFollowedByCurrentUser = false
         } label: {
+//            HStack{
+//                Text("Following")
+//                Image(systemName: "chevron.down")
+//                .font(.caption.weight(.regular))
+//            }
+//            .foregroundColor(.white)
+//            .halfBlueButtonify()
             Labels.profileFollowingButtonLabel
         }
     }
@@ -46,10 +57,18 @@ struct ProfileButtons: View {
         }
 
     }
-}
-
-struct ProfileButtons_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileButtons(isFollowedByCurrentUser: .constant(true), isCurrentUser: .constant(true))
+    
+    var messageButton: some View {
+        Button {
+            //
+        } label: {
+            Labels.profileMessageButtonLabel
+        }
     }
 }
+
+//struct ProfileButtons_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileButtons(isFollowedByCurrentUser: .constant(true), isCurrentUser: .constant(true))
+//    }
+//}

@@ -19,7 +19,7 @@ struct ProfileViewExample: View {
                     userFullNameExample(for: user)
                     bio(for: user)
                     followedByExample(user: user)
-                    ProfileButtons(isFollowedByCurrentUser: $isFollowedByCurrentUser, isCurrentUser: $isCurrentUser)
+                    ProfileButtons(isFollowedByCurrentUser: $isFollowedByCurrentUser, isCurrentUser: true)
                     StoriesExample(user: user)
                 }
                 .padding(.horizontal, screen.minDim / 30)

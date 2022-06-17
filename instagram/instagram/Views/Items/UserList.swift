@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserList: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
     @ObservedObject var viewModel: SearchViewModel
     @Binding var searchText: String
     
@@ -19,7 +20,9 @@ struct UserList: View {
         LazyVStack(spacing: screen.minDim / 30) {
             ForEach(users) { user in
                 NavigationLink {
-                    ProfileView(user: user)
+                    if let viewer = authViewModel.user {
+                        ProfileView(viewer: viewer, user: user)
+                    }
                 } label: {
                     UserCell(user: user)
                         .padding(.horizontal)

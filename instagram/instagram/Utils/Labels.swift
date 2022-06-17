@@ -56,11 +56,17 @@ struct Labels {
                                                         .foregroundColor(.white)
                                                         .halfBlueButtonify()
     static let profileFollowingLabel: some View = HStack{
-                                                    Text("Following")
-                                                    image(for: .chevronDown)
-                                                        .font(.caption.weight(.regular))
-                                                }
-    static let profileFollowingButtonLabel: some View = profileFollowingLabel
+                                                            Text("Following")
+                                                            Image(systemName: "chevron.down")
+                                                            .font(.caption.weight(.regular))
+                                                        }
+                                                        .foregroundColor(.white)
+    static let profileFollowingButtonLabel: some View = HStack{
+                                                            Text("Following")
+                                                            Image(systemName: "chevron.down")
+                                                            .font(.caption.weight(.regular))
+                                                        }
+                                                        .foregroundColor(.white)
                                                         .halfBlueButtonify()
     
     static let profileMessageButtonLabel: some View = Text("Message")
