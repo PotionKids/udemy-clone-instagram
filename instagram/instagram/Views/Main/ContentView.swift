@@ -17,8 +17,6 @@ struct ContentView: View {
             } else {
                 if let user = viewModel.user {
                     HomeTabView(user: user)
-                } else {
-                    FeedView()
                 }
             }
         }
