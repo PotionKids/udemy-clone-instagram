@@ -15,9 +15,3 @@ struct UserCell: View {
         }
     }
 }
-
-//struct UserCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserCell()
-//    }
-//}

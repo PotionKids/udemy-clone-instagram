@@ -23,9 +23,3 @@ struct UserList: View {
         }
     }
 }
-
-//struct UserList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserList()
-//    }
-//}
