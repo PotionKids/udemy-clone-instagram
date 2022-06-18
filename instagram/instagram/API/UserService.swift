@@ -10,22 +10,40 @@ import Firebase
 
 struct UserService {
     
-    static func follow(currentUID: String, followingUID: String, completion: ((Error?) -> Void)?) {
+    static func follow(_ followed: String, by current: String, completion: ((Error?) -> Void)?) {
         Constants.collectionFollowing
-            .document(currentUID)
+            .document(current)
             .collection(Constants.userFollowing)
-            .document(followingUID).setData([:]) { _ in
+            .document(followed)
+            .setData([:]) { _ in
                 Constants.collectionFollowers
-                    .document(followingUID).collection(Constants.userFollowers)
-                    .document(currentUID).setData([:], completion: completion)
+                    .document(followed).collection(Constants.userFollowers)
+                    .document(current).setData([:], completion: completion)
             }
     }
     
-    static func unfollow() {
-        print("DEBUG: Unfollow...")
+    static func unfollow(_ followed: String, by current: String, completion: ((Error?) -> Void)?) {
+        Constants.collectionFollowing
+            .document(current)
+            .collection(Constants.userFollowing)
+            .document(followed)
+            .delete { _ in
+                Constants.collectionFollowers
+                    .document(followed)
+                    .collection(Constants.userFollowers)
+                    .document(current)
+                    .delete(completion: completion)
+            }
     }
     
-    static func checkIfFollowed() {
-        
+    static func checkIfFollowed(_ followed: String, by current: String, completion: @escaping (Bool) -> Void) {
+        Constants.collectionFollowing
+            .document(current)
+            .collection(Constants.userFollowing)
+            .document(followed)
+            .getDocument { snapshot, _ in
+                guard let isFollowed = snapshot?.exists else { return }
+                completion(isFollowed)
+            }
     }
 }
