@@ -15,6 +15,8 @@ struct User: Equatable, Identifiable, Codable {
     let email: String
     let profileImageURL: String
     
+    var isFollowed: Bool? = false
+    
     var isCurrent: Bool {
         id == AuthViewModel.currentUID
     }

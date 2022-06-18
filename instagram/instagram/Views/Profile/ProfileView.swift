@@ -25,7 +25,7 @@ struct ProfileView: View {
                     fullname
                     bio
                     followedBy
-                    ProfileButtons(viewModel: viewModel, isFollowedByCurrentUser: $isFollowedByCurrentUser)
+                    ProfileButtons(viewModel: viewModel)
                     Stories(user: user)
                 }
                 .padding(.horizontal, screen.minDim / 30)

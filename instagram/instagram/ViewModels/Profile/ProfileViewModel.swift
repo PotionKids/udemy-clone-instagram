@@ -8,7 +8,7 @@
 import Foundation
 
 class ProfileViewModel: ObservableObject {
-    let user: User
+    @Published var user: User
     var current: User? {
         AuthViewModel.shared.user
     }
@@ -22,7 +22,7 @@ class ProfileViewModel: ObservableObject {
                 let currentUID = current.id,
                 let followingUID = user.id else { return }
         UserService.follow(currentUID: currentUID, followingUID: followingUID) { _ in
-            print("DEBUG: SUCCESS: Current User: \(current.username) Successfully followed \(self.user.username)")
+            self.user.isFollowed = true
         }
     }
     
