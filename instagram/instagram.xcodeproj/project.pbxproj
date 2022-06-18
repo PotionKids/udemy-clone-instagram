@@ -38,6 +38,7 @@
 		EEBA25F0285426F5002F4E2F /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBA25EF285426F5002F4E2F /* Signup.swift */; };
 		EEBA25F228542706002F4E2F /* PasswordReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBA25F128542706002F4E2F /* PasswordReset.swift */; };
 		EEBEE17C285A8CE700152AC4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBEE17B285A8CE700152AC4 /* User.swift */; };
+		EEC08CF2285E440E007A1069 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC08CF1285E440E007A1069 /* UserService.swift */; };
 		EEC86B0F2851FA3300F46820 /* NetflixSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0C2851FA3300F46820 /* NetflixSansLight.otf */; };
 		EEC86B102851FA3300F46820 /* NetflixSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */; };
 		EEC86B112851FA3300F46820 /* NetflixSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */; };
@@ -98,6 +99,7 @@
 		EEBA25EF285426F5002F4E2F /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 		EEBA25F128542706002F4E2F /* PasswordReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReset.swift; sourceTree = "<group>"; };
 		EEBEE17B285A8CE700152AC4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EEC08CF1285E440E007A1069 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		EEC86B0C2851FA3300F46820 /* NetflixSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansLight.otf; sourceTree = "<group>"; };
 		EEC86B0D2851FA3300F46820 /* NetflixSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansMedium.otf; sourceTree = "<group>"; };
 		EEC86B0E2851FA3300F46820 /* NetflixSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetflixSansBold.otf; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				EE11EF02285A28AF00E3D6A7 /* ImageUploader.swift */,
+				EEC08CF1285E440E007A1069 /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				EE99C0C4284FC4FD00426F6C /* UserExample.swift in Sources */,
 				EE3D473F285BD62200079CA9 /* UserList.swift in Sources */,
 				EEBA25F228542706002F4E2F /* PasswordReset.swift in Sources */,
+				EEC08CF2285E440E007A1069 /* UserService.swift in Sources */,
 				EE99C0B8284F6ECC00426F6C /* NotificationsView.swift in Sources */,
 				EEE2C7A92859071E009BF5B6 /* Opening.swift in Sources */,
 				EE99C0BE284FB0FF00426F6C /* FeedCell.swift in Sources */,

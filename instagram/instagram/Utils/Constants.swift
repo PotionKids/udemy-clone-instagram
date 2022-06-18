@@ -48,6 +48,13 @@ struct Constants {
     static let profileImageURL = "profileImageURL"
     static let uID = "uid"
     static let users = "users"
+    static let followers = "followers"
+    static let following = "following"
+    static let userFollowers = "user-followers"
+    static let userFollowing = "user-following"
     
-    static let collectionUsers = Firestore.firestore().collection("users")
+    
+    static let collectionUsers = Firestore.firestore().collection(users)
+    static let collectionFollowers = Firestore.firestore().collection(followers)
+    static let collectionFollowing = Firestore.firestore().collection(following)
 }
