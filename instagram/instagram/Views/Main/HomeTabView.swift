@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeTabView: View {
     @EnvironmentObject var viewModel: AuthViewModel
-    @State private var selected: Tab = .home
+    @Binding var selected: Tab
     var user: User
     
     var body: some View {
@@ -25,11 +25,11 @@ struct HomeTabView: View {
                         Image(systemName: "magnifyingglass")
                     }
                     .tag(Tab.search)
-                UploadView()
+                UploadView(selected: $selected)
                     .tabItem {
                         Image(systemName: "plus.app.fill")
                     }
-                    .tag(Tab.upload)
+                    .tag(Tab.post)
                 NotificationsView()
                     .tabItem {
                         Image(systemName: "suit.heart")
@@ -59,15 +59,9 @@ struct HomeTabView: View {
 }
 
 enum Tab: String, CaseIterable {
-    case home = "Home"
+    case home = "Feed"
     case search = "Search"
-    case upload = "Upload"
+    case post = "Post"
     case notifications = "Notifications"
     case profile = "Profile"
 }
-
-//struct HomeTabView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeTabView()
-//    }
-//}

@@ -11,7 +11,7 @@ import Firebase
 
 class PostViewModel: ObservableObject {
     
-    func post(withCaption caption: String, AndImage image: UIImage) {
+    func post(withCaption caption: String, AndImage image: UIImage, completion: FirestoreCompletion?) {
         guard let user = AuthViewModel.shared.user else { return }
         
         ImageUploader.upload(type: .post, image: image) { imageURL in
@@ -24,9 +24,7 @@ class PostViewModel: ObservableObject {
                 Constants.likes: 0
             ] as [String : Any]
             
-            Constants.collectionPosts.addDocument(data: data) { _ in
-                print("DEBUG: SUCESS: Uploaded post.")
-            }
+            Constants.collectionPosts.addDocument(data: data, completion: completion)
         }
     }
 }

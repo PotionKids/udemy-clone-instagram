@@ -13,6 +13,7 @@ struct UploadView: View {
     @State var postImage: Image?
     @State var caption = ""
     @State var showPicker = false
+    @Binding var selected: Tab
     @ObservedObject var viewModel = PostViewModel()
     
     var body: some View {
@@ -54,7 +55,11 @@ struct UploadView: View {
     var postButton: some View {
         Button  {
             if let image = selectedImage {
-                viewModel.post(withCaption: caption, AndImage: image)
+                viewModel.post(withCaption: caption, AndImage: image) { _ in
+                    caption = ""
+                    postImage = nil
+                    selected = .home
+                }
             }
         } label: {
             Text("Post")
@@ -81,11 +86,5 @@ extension UploadView {
     func loadImage() {
         guard let image = selectedImage else { return }
         postImage = Image(uiImage: image)
-    }
-}
-
-struct UploadView_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadView()
     }
 }

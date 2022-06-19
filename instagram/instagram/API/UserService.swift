@@ -8,9 +8,11 @@
 import Foundation
 import Firebase
 
+typealias FirestoreCompletion = ((Error?) -> Void)
+
 struct UserService {
     
-    static func follow(_ followed: String, by current: String, completion: ((Error?) -> Void)?) {
+    static func follow(_ followed: String, by current: String, completion: FirestoreCompletion?) {
         Constants.collectionFollowing
             .document(current)
             .collection(Constants.userFollowing)
@@ -22,7 +24,7 @@ struct UserService {
             }
     }
     
-    static func unfollow(_ followed: String, by current: String, completion: ((Error?) -> Void)?) {
+    static func unfollow(_ followed: String, by current: String, completion: FirestoreCompletion?) {
         Constants.collectionFollowing
             .document(current)
             .collection(Constants.userFollowing)
