@@ -13,6 +13,7 @@ struct UploadView: View {
     @State var postImage: Image?
     @State var caption = ""
     @State var showPicker = false
+    @ObservedObject var viewModel = PostViewModel()
     
     var body: some View {
         if let image = postImage {
@@ -52,7 +53,9 @@ struct UploadView: View {
     }
     var postButton: some View {
         Button  {
-            //
+            if let image = selectedImage {
+                viewModel.post(withCaption: caption, AndImage: image)
+            }
         } label: {
             Text("Post")
                 .font(.body.weight(.medium))

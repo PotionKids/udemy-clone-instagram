@@ -40,7 +40,7 @@ class AuthViewModel: ObservableObject {
             return
         }
 
-        ImageUploader.upload(image: image) { imageURL in
+        ImageUploader.upload(type: .profile, image: image) { imageURL in
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if let error = error {
                     print(error.localizedDescription)

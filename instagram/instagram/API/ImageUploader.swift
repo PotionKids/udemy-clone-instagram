@@ -12,11 +12,19 @@ import FirebaseAuth
 import FirebaseStorage
 
 struct ImageUploader {
-    static func upload(image: UIImage, completion: @escaping (String) -> Void) {
+    enum UploadType: String {
+        case post = "/post/image/"
+        case profile = "/profile/image/"
+        
+        var path: StorageReference {
+            Storage.storage().reference(withPath: self.rawValue + UUID().uuidString)
+        }
+    }
+    
+    static func upload(type: UploadType, image: UIImage, completion: @escaping (String) -> Void) {
         guard let data = image.jpegData(compressionQuality: 1) else { return }
         
-        let file = UUID().uuidString
-        let ref = Storage.storage().reference(withPath: "/profile/image/\(file)")
+        let ref = type.path
         ref.putData(data) { _, error in
             if let error = error {
                 print("DEBUG: FAILURE: Failed to upload image error: \(error.localizedDescription)")

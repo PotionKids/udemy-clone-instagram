@@ -52,9 +52,15 @@ struct Constants {
     static let following = "following"
     static let userFollowers = "user-followers"
     static let userFollowing = "user-following"
+    static let caption = "caption"
+    static let timestamp = "timestamp"
+    static let imageURL = "imageURL"
+    static let likes = "likes"
+    static let posts = "posts"
     
     
     static let collectionUsers = Firestore.firestore().collection(users)
     static let collectionFollowers = Firestore.firestore().collection(followers)
     static let collectionFollowing = Firestore.firestore().collection(following)
+    static let collectionPosts = Firestore.firestore().collection(posts)
 }
