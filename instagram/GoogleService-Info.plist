@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>607918265596-a2rr3vm5k7llptaqmf6k5045li7ufqtp.apps.googleusercontent.com</string>
+	<string>1016055386859-ovu39mhdr7r57cg91odr93c5kjp7fs58.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.607918265596-a2rr3vm5k7llptaqmf6k5045li7ufqtp</string>
+	<string>com.googleusercontent.apps.1016055386859-ovu39mhdr7r57cg91odr93c5kjp7fs58</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBq76ZG__dQtEV9yDUVBS5g9_aHucbCcZA</string>
+	<string>AIzaSyCuLT8CfwZGaeUXhtdAkANvfqcj8EjhHX0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>607918265596</string>
+	<string>1016055386859</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.campuscoach.instagram</string>
 	<key>PROJECT_ID</key>
-	<string>instagram-81f6f</string>
+	<string>instagram-95a55</string>
 	<key>STORAGE_BUCKET</key>
-	<string>instagram-81f6f.appspot.com</string>
+	<string>instagram-95a55.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:607918265596:ios:618fdb41339c097c337379</string>
+	<string>1:1016055386859:ios:5e373b72bbd6e1efeee4ae</string>
 </dict>
 </plist>
