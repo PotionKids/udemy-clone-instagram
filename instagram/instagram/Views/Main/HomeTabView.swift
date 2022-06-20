@@ -25,7 +25,7 @@ struct HomeTabView: View {
                         Image(systemName: "magnifyingglass")
                     }
                     .tag(Tab.search)
-                UploadView(selected: $selected)
+                PostView(selected: $selected)
                     .tabItem {
                         Image(systemName: "plus.app.fill")
                     }

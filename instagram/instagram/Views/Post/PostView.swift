@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct UploadView: View {
+struct PostView: View {
     var imageName = "KH Profile Pic"
     @State var selectedImage: UIImage?
     @State var postImage: Image?
     @State var caption = ""
+    @State var placeholder = "Enter your caption..."
     @State var showPicker = false
     @Binding var selected: Tab
     @ObservedObject var viewModel = PostViewModel()
@@ -23,6 +24,7 @@ struct UploadView: View {
                 postButton
             }
             .padding()
+            .offset(y: -screen.minDim / 9)
         } else {
             imageUploadButton
             .sheet(isPresented: $showPicker) {
@@ -30,7 +32,6 @@ struct UploadView: View {
             } content: {
                 ImagePicker(selectedImage: $selectedImage)
             }
-
         }
     }
     
@@ -47,10 +48,10 @@ struct UploadView: View {
             .squarify()
             .scale(by: 3)
     }
+    
     var captionTextField: some View {
-        TextField("Enter your caption...", text: $caption)
-            .frame(alignment: .topLeading)
-            .textFieldify(heightScaling: 7.2, alignment: .topLeading)
+        TextArea(text: $caption, placeholder: "Enter caption here...")
+            .frame(height: screen.height / 7)
     }
     var postButton: some View {
         Button  {
@@ -82,7 +83,7 @@ struct UploadView: View {
     }
 }
 
-extension UploadView {
+extension PostView {
     func loadImage() {
         guard let image = selectedImage else { return }
         postImage = Image(uiImage: image)
