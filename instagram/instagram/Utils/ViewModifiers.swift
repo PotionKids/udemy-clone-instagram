@@ -261,6 +261,35 @@ struct FlexFrame: ViewModifier {
     }
 }
 
+struct ViewColor {
+    enum Colors {
+        case background(color: Color)
+        case foreground(color: Color)
+        case border(color: Color)
+        
+        var color: Color {
+            switch self {
+            case .background(let color),
+                 .foreground(let color),
+                 .border(color: let color):
+                return color
+            }
+        }
+    }
+    
+    var background: Colors = .background(color: .blue)
+    var foreground: Colors = .foreground(color: .white)
+    var border: Colors?
+    
+    init(background: Color, foreground: Color, border: Color? = nil) {
+        self.background = .background(color: background)
+        self.foreground = .foreground(color: foreground)
+        if let color = border {
+            self.border = .border(color: color)
+        }
+    }
+}
+
 struct ColorModifier: ViewModifier {
     enum Colors {
         case background(color: Color)
@@ -289,6 +318,21 @@ struct ColorModifier: ViewModifier {
     }
 }
 
+struct ColorButtonBorderless: ViewModifier {
+    var colors = ViewColor(background: .blue, foreground: .white)
+    var cornerRadiusScaling: CGFloat = 150
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(colors.foreground.color)
+            .background(
+                RoundedRectangle(cornerRadius: Constants.screen.minDim / cornerRadiusScaling)
+                    .foregroundColor(colors.background.color)
+            )
+    }
+}
+
+
 struct BlackAndWhiteButton: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -300,6 +344,7 @@ struct BlackAndWhiteButton: ViewModifier {
                     .foregroundColor(.gray))
     }
 }
+
 
 struct BlueButton: ViewModifier {
     func body(content: Content) -> some View {
@@ -368,12 +413,24 @@ extension View {
         modifier(ProfileHalfButton())
     }
     
+    func borderlessColorButtonify(background: Color = .blue, foreground: Color = .white, cornerRadiusScaling: CGFloat = 150) -> some View {
+        modifier(ColorButtonBorderless(colors: ViewColor(background: background, foreground: foreground), cornerRadiusScaling: cornerRadiusScaling))
+    }
+    
     func blackAndWhiteButtonify() -> some View {
         modifier(BlackAndWhiteButton())
     }
     
+    func redButtonify() -> some View {
+        self.borderlessColorButtonify(background: .red, foreground: .white, cornerRadiusScaling: 150)
+    }
+    
     func blueButtonify() -> some View {
-        modifier(BlueButton())
+        self.borderlessColorButtonify(background: .blue, foreground: .white, cornerRadiusScaling: 150)
+    }
+    
+    func borderlessBlueButtonify(cornerRadiusScaling: CGFloat = 150) -> some View {
+        self.borderlessColorButtonify(cornerRadiusScaling: cornerRadiusScaling)
     }
     
     func profileFullButtonify() -> some View {

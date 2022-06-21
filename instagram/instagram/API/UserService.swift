@@ -7,6 +7,8 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 typealias FirestoreCompletion = ((Error?) -> Void)
 
@@ -48,4 +50,33 @@ struct UserService {
                 completion(isFollowed)
             }
     }
+    
+//    static func fetch(userWithID uid: String) -> User? {
+//        var user: User?
+//        
+//        Constants
+//            .collectionUsers
+//            .document(uid)
+//            .getDocument { snapshot, _ in
+//            guard let fetched = try? snapshot?.data(as: User.self) else { return }
+//            print("DEBUG: User fetched: \(user)")
+//            user = fetched
+//        }
+//        return user
+//    }
+//    
+//    static func fetch(followingForUserID uid: String) -> [User] {
+//        var following = [User]()
+//        Constants.collectionFollowing
+//            .document(uid)
+//            .collection(Constants.userFollowing)
+//            .getDocuments { snapshot, _ in
+//                guard let documents = snapshot?.documents else {
+//                    print("DEBUG: FAILURE: User following documents not found in Firestore.")
+//                    return
+//                }
+//                following = documents.compactMap { try? $0.data(as: User.self)}
+//            }
+//        return following
+//    }
 }

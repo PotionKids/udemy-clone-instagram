@@ -15,6 +15,7 @@
 		EE3D4741285BE0AE00079CA9 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D4740285BE0AE00079CA9 /* SearchView.swift */; };
 		EE44BB86285FEC8E001C6903 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44BB85285FEC8E001C6903 /* TextArea.swift */; };
 		EE47C1C3285B59EF00D33B2F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE47C1C2285B59EF00D33B2F /* SearchViewModel.swift */; };
+		EE8C69F3286239FB004CD358 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8C69F2286239FB004CD358 /* PostService.swift */; };
 		EE99C0B6284F6EB500426F6C /* SearchViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B5284F6EB500426F6C /* SearchViewExample.swift */; };
 		EE99C0B8284F6ECC00426F6C /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0B7284F6ECC00426F6C /* NotificationsView.swift */; };
 		EE99C0BC284F6F0100426F6C /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99C0BB284F6F0100426F6C /* PostView.swift */; };
@@ -38,6 +39,8 @@
 		EE9C0D09285F76E3004E5FFF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EE9C0D08285F76E3004E5FFF /* FirebaseStorage */; };
 		EE9C0D0C285F7DD6004E5FFF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EE9C0D0B285F7DD6004E5FFF /* Kingfisher */; };
 		EE9C0D0E285FA147004E5FFF /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9C0D0D285FA147004E5FFF /* PostViewModel.swift */; };
+		EEA341D12860F31D008B4BD8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA341D02860F31D008B4BD8 /* Post.swift */; };
+		EEA341D32860F969008B4BD8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA341D22860F969008B4BD8 /* FeedViewModel.swift */; };
 		EEB1BF97285CD9A400DA6683 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB1BF96285CD9A400DA6683 /* ProfileView.swift */; };
 		EEB1BF99285CDB5100DA6683 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB1BF98285CDB5100DA6683 /* ProfileHeader.swift */; };
 		EEB1BF9B285CDB6100DA6683 /* Stories.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB1BF9A285CDB6100DA6683 /* Stories.swift */; };
@@ -83,6 +86,7 @@
 		EE3D4740285BE0AE00079CA9 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		EE44BB85285FEC8E001C6903 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		EE47C1C2285B59EF00D33B2F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		EE8C69F2286239FB004CD358 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		EE99C0B5284F6EB500426F6C /* SearchViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewExample.swift; sourceTree = "<group>"; };
 		EE99C0B7284F6ECC00426F6C /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		EE99C0BB284F6F0100426F6C /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		EE99C0CD28500FAB00426F6C /* UserListViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewExample.swift; sourceTree = "<group>"; };
 		EE9C0CF7285F762D004E5FFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE9C0D0D285FA147004E5FFF /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		EEA341D02860F31D008B4BD8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		EEA341D22860F969008B4BD8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		EEB1BF96285CD9A400DA6683 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EEB1BF98285CDB5100DA6683 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		EEB1BF9A285CDB6100DA6683 /* Stories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stories.swift; sourceTree = "<group>"; };
@@ -213,6 +219,7 @@
 				EE99C0C3284FC4FD00426F6C /* UserExample.swift */,
 				EE99C0C5284FC73B00426F6C /* PostExample.swift */,
 				EEBEE17B285A8CE700152AC4 /* User.swift */,
+				EEA341D02860F31D008B4BD8 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,6 +258,7 @@
 			children = (
 				EE11EF02285A28AF00E3D6A7 /* ImageUploader.swift */,
 				EEC08CF1285E440E007A1069 /* UserService.swift */,
+				EE8C69F2286239FB004CD358 /* PostService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 		EEE87A82284F6C690043F019 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				EEA341D22860F969008B4BD8 /* FeedViewModel.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -505,6 +514,7 @@
 				EE99C0C2284FC1AF00426F6C /* Labels.swift in Sources */,
 				EEC86B222852B6B400F46820 /* ProfileButtons.swift in Sources */,
 				EEE2C79F2858AA10009BF5B6 /* CustomTabSwitcher.swift in Sources */,
+				EEA341D12860F31D008B4BD8 /* Post.swift in Sources */,
 				EEE2C7A72858C22A009BF5B6 /* PhoneNumberTextFieldView.swift in Sources */,
 				EE3D473D285BD5F600079CA9 /* UserCell.swift in Sources */,
 				EE9C0D0E285FA147004E5FFF /* PostViewModel.swift in Sources */,
@@ -521,7 +531,9 @@
 				EE99C0C0284FB37700426F6C /* Extensions.swift in Sources */,
 				EEBEE17C285A8CE700152AC4 /* User.swift in Sources */,
 				EEE87A67284F69BD0043F019 /* instagramApp.swift in Sources */,
+				EEA341D32860F969008B4BD8 /* FeedViewModel.swift in Sources */,
 				EE3D4741285BE0AE00079CA9 /* SearchView.swift in Sources */,
+				EE8C69F3286239FB004CD358 /* PostService.swift in Sources */,
 				EEC86B242852C15100F46820 /* StoriesExample.swift in Sources */,
 				EEC86B1A2852A70E00F46820 /* ViewModifiers.swift in Sources */,
 				EEC86B202852B57C00F46820 /* UserStatView.swift in Sources */,

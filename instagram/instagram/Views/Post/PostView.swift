@@ -21,7 +21,8 @@ struct PostView: View {
         if let image = postImage {
             VStack {
                 postImageAndCaption(image: image)
-                postButton
+//                postButton
+                postAndCancelButtons
             }
             .padding()
             .offset(y: -screen.minDim / 9)
@@ -53,6 +54,27 @@ struct PostView: View {
         TextArea(text: $caption, placeholder: "Enter caption here...")
             .frame(height: screen.height / 7)
     }
+    
+    var postAndCancelButtons: some View {
+        HStack {
+            cancelButton
+            postButton
+        }
+    }
+    var cancelButton: some View {
+        Button {
+            caption = ""
+            postImage = nil
+        } label: {
+            Text("Cancel")
+                .font(.body.weight(.medium))
+                .foregroundColor(.white)
+                .halfButtonify()
+                .redButtonify()
+        }
+
+    }
+    
     var postButton: some View {
         Button  {
             if let image = selectedImage {
@@ -66,7 +88,8 @@ struct PostView: View {
             Text("Post")
                 .font(.body.weight(.medium))
                 .foregroundColor(.white)
-                .fullBlueButtonify()
+                .halfButtonify()
+                .blueButtonify()
         }
     }
     

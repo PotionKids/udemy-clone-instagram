@@ -21,7 +21,8 @@ class PostViewModel: ObservableObject {
                 Constants.profileImageURL: user.profileImageURL,
                 Constants.caption: caption,
                 Constants.imageURL: imageURL,
-                Constants.likes: 0
+                Constants.likes: 0,
+                Constants.timestamp: Timestamp(date: Date())
             ] as [String : Any]
             
             Constants.collectionPosts.addDocument(data: data, completion: completion)
