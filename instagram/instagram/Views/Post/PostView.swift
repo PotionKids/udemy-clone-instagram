@@ -21,7 +21,6 @@ struct PostView: View {
         if let image = postImage {
             VStack {
                 postImageAndCaption(image: image)
-//                postButton
                 postAndCancelButtons
             }
             .padding()

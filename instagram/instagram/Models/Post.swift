@@ -16,5 +16,5 @@ struct Post: Identifiable, Codable {
     let caption: String
     let imageURL: String
     let likes: Int
-    let timestamp: Timestamp
+    let timestamp: Date
 }

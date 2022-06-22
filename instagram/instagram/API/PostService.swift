@@ -9,11 +9,21 @@
 //import Firebase
 //
 //struct PostService {
-////    static func fetch(postWithID postID: String) -> Post {
-////        Post()
-////    }
+//    static func fetch(postWithID postID: String, completion: @escaping (Post) -> Void) {
+//        Constants.collectionPosts
+//            .document(postID)
+//            .getDocument { snapshot, _ in
+//                guard let post = try? snapshot?.data(as: Post.self) else { return }
+//                completion(post)
+//            }
+//    }
 //    
-//    static func fetch(postsWithID postIDs: [String]) -> [Post] {
-//        [Post]()
+//    static func fetch(postsWithIDs postIDs: [String], completion: @escaping ([Post]) -> Void) {
+//        var posts = [Post]()
+//        for postID in postIDs {
+//            fetch(postWithID: postID) { post in
+//                posts.append(post)
+//            }
+//        }
 //    }
 //}

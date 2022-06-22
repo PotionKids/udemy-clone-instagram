@@ -51,32 +51,33 @@ struct UserService {
             }
     }
     
-//    static func fetch(userWithID uid: String) -> User? {
-//        var user: User?
-//        
+//    static func fetch(userWithID uid: String, completion: @escaping (User) -> Void) {
 //        Constants
 //            .collectionUsers
 //            .document(uid)
 //            .getDocument { snapshot, _ in
-//            guard let fetched = try? snapshot?.data(as: User.self) else { return }
-//            print("DEBUG: User fetched: \(user)")
-//            user = fetched
-//        }
-//        return user
-//    }
-//    
-//    static func fetch(followingForUserID uid: String) -> [User] {
-//        var following = [User]()
-//        Constants.collectionFollowing
-//            .document(uid)
-//            .collection(Constants.userFollowing)
-//            .getDocuments { snapshot, _ in
-//                guard let documents = snapshot?.documents else {
-//                    print("DEBUG: FAILURE: User following documents not found in Firestore.")
-//                    return
-//                }
-//                following = documents.compactMap { try? $0.data(as: User.self)}
+//                guard let user = try? snapshot?.data(as: User.self) else { return }
+//                completion(user)
 //            }
-//        return following
+//    }
+    
+    static func fetch(followingForUserID uid: String, completion: @escaping ([String]) -> Void) {
+        Constants.collectionFollowing
+            .document(uid)
+            .collection(Constants.userFollowing)
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else {
+                    print("DEBUG: FAILURE: User following documents not found in Firestore.")
+                    return
+                }
+                guard let followingIDs = documents as? [String] else { return }
+                completion(followingIDs)
+        }
+    }
+    
+//    static func fetch(postsForUserID uid: String, completion: @escaping ([String]) -> Void) {
+//        Constants.collectionPosts
+//            .document(uid)
+//            .
 //    }
 }
