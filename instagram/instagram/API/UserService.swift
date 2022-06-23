@@ -51,15 +51,15 @@ struct UserService {
             }
     }
     
-//    static func fetch(userWithID uid: String, completion: @escaping (User) -> Void) {
-//        Constants
-//            .collectionUsers
-//            .document(uid)
-//            .getDocument { snapshot, _ in
-//                guard let user = try? snapshot?.data(as: User.self) else { return }
-//                completion(user)
-//            }
-//    }
+    static func fetch(userWithID uid: String, completion: @escaping (User) -> Void) {
+        Constants
+            .collectionUsers
+            .document(uid)
+            .getDocument { snapshot, _ in
+                guard let user = try? snapshot?.data(as: User.self) else { return }
+                completion(user)
+            }
+    }
     
     static func fetch(followingForUserID uid: String, completion: @escaping ([String]) -> Void) {
         Constants.collectionFollowing

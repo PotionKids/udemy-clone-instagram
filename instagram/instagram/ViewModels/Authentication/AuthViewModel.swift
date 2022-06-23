@@ -76,15 +76,15 @@ class AuthViewModel: ObservableObject {
     }
     func fetch() {
         guard let uid = userSession?.uid else { return }
-//        UserService.fetch(userWithID: uid) { user in
-//            self.user = user
-//        }
-        Constants
-            .collectionUsers
-            .document(uid)
-            .getDocument { snapshot, _ in
-                guard let userFetched = try? snapshot?.data(as: User.self) else { return }
-                self.user = userFetched
-            }
+        UserService.fetch(userWithID: uid) { user in
+            self.user = user
+        }
+//        Constants
+//            .collectionUsers
+//            .document(uid)
+//            .getDocument { snapshot, _ in
+//                guard let userFetched = try? snapshot?.data(as: User.self) else { return }
+//                self.user = userFetched
+//            }
     }
 }

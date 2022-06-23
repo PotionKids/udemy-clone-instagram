@@ -188,7 +188,7 @@ struct Labels {
     static func profilePic(for user: User, withScaling scaling: CGFloat) -> some View {
         KFImage(URL(string: user.profileImageURL))
             .resizable()
-            .scaledToFit()
+            .scaledToFill()
             .clipShape(Circle())
             .frame(width: screen.minDim / scaling, height: screen.minDim / scaling)
     }
