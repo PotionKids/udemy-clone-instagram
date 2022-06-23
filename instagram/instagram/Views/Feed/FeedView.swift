@@ -2,28 +2,21 @@
 //  FeedView.swift
 //  instagram
 //
-//  Created by Krishnaswami Rajendren on 6/7/22.
+//  Created by Krishnaswami Rajendren on 6/23/22.
 //
 
 import SwiftUI
 
 struct FeedView: View {
-    var users = UsersExample.all
+    @ObservedObject var viewModel = FeedViewModel()
+    
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(users.shuffled()) { user in
-                    ForEach(user.posts.shuffled()) { post in
-                            FeedCell(user: user, post: post)
-                    }
+                ForEach(viewModel.userPostPairs.shuffled()) { userPost in
+                    FeedCell(user: userPost.user, post: userPost.post)
                 }
             }
         }
-    }
-}
-
-struct FeedView_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedView()
     }
 }

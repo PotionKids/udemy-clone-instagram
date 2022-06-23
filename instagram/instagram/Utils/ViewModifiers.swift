@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import Kingfisher
 
 /// Common aspect ratios
 public enum AspectRatio: CGFloat {
@@ -55,6 +56,24 @@ public struct FitToAspectRatio: ViewModifier {
 
 // Image extension that composes with the `.resizable()` modifier
 public extension Image {
+    func fitToAspectRatio(_ aspectRatio: CGFloat) -> some View {
+        self.resizable().modifier(FitToAspectRatio(aspectRatio))
+    }
+    
+    func fitToAspectRatio(_ aspectRatio: AspectRatio) -> some View {
+        self.resizable().modifier(FitToAspectRatio(aspectRatio))
+    }
+    
+    func fitToAspectRatio(_ aspectRatio: CGFloat, backgroundColor: Color) -> some View {
+        self.resizable().modifier(FitToAspectRatio(aspectRatio, backgroundColor: backgroundColor))
+    }
+    
+    func squarify() -> some View {
+        self.resizable().modifier(FitToAspectRatio(1))
+    }
+}
+
+public extension KFImage {
     func fitToAspectRatio(_ aspectRatio: CGFloat) -> some View {
         self.resizable().modifier(FitToAspectRatio(aspectRatio))
     }

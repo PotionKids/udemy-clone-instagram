@@ -17,4 +17,8 @@ struct Post: Identifiable, Codable {
     let imageURL: String
     let likes: Int
     let timestamp: Date
+    
+    var isLiked: Bool {
+        likes > 0
+    }
 }

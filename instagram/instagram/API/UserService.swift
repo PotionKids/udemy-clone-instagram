@@ -70,14 +70,26 @@ struct UserService {
                     print("DEBUG: FAILURE: User following documents not found in Firestore.")
                     return
                 }
-                guard let followingIDs = documents as? [String] else { return }
+                print(LOGGING.DEBUG.SUCCESS.log(message: "Fetched document: \(documents)"))
+                let followingIDs = documents.compactMap {$0.documentID}
+                print(LOGGING.DEBUG.SUCCESS.log(message: "Fetched followingIDs: \(followingIDs)"))
                 completion(followingIDs)
         }
     }
     
-//    static func fetch(postsForUserID uid: String, completion: @escaping ([String]) -> Void) {
-//        Constants.collectionPosts
-//            .document(uid)
-//            .
-//    }
+    static func fetch(postsForUserID uid: String, completion: @escaping ([Post]) -> Void) {
+        var posts = [Post]()
+        Constants.collectionPosts
+            .document(uid)
+            .collection(Constants.userPosts)
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else {
+                    print(LOGGING.DEBUG.FAILURE.log(message: "Could not fetch posts for user with id: \(uid)"))
+                    return
+                }
+                print(LOGGING.DEBUG.SUCCESS.log(message: "Fetched posts for user with id: \(uid)"))
+                posts = documents.compactMap {try? $0.data(as: Post.self)}
+                completion(posts)
+            }
+    }
 }

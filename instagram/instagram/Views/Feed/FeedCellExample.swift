@@ -2,14 +2,14 @@
 //  FeedCell.swift
 //  instagram
 //
-//  Created by Krishnaswami Rajendren on 6/23/22.
+//  Created by Krishnaswami Rajendren on 6/7/22.
 //
 
 import SwiftUI
 
-struct FeedCell: View {
-    var user: User
-    var post: Post
+struct FeedCellExample: View {
+    var user: UserExample
+    var post: PostExample
     @State private var liked: Bool = false
     var body: some View {
         ScrollView {
@@ -25,17 +25,17 @@ struct FeedCell: View {
     }
     
     var timeElapsed: some View {
-        Labels.postTimePassedLabel(post)
+        Labels.postTimePassedLabelExample(for: user, andPost: post)
     }
     var description: some View {
-        Labels.postDescriptionLabel(for: user, andPost: post)
+        Labels.postDescriptionLabelExample(for: user, andPost: post)
             .padding(.bottom)
     }
     var content: some View {
-        Labels.postContentLabel(for: post)
+        Labels.postContentLabelExample(for: post)
     }
     var poster: some View {
-        Labels.posterLabel(for: user)
+        Labels.posterLabelExample(for: user)
             .padding([.bottom, .horizontal], screen.width / 25)
             .padding(.top, screen.width / 39)
     }
@@ -82,13 +82,5 @@ struct FeedCell: View {
         } label: {
             Labels.share
         }
-    }
-}
-
-
-
-struct FeedCell_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedCellExample(user: UsersExample.therock, post: PostsExample.rockPost1)
     }
 }

@@ -13,6 +13,7 @@ struct Login: View {
     @State private var isSecured: Bool = true
     
     @Binding var showing: LandingScreen
+    @Binding var selected: Tab
     
     @EnvironmentObject var viewModel: AuthViewModel
     
@@ -87,6 +88,7 @@ struct Login: View {
     var loginButton: some View {
         Button {
             viewModel.login(withLogin: login, password: password)
+            selected = .home
         } label: {
             Text("Log in")
                 .font(.body.weight(.medium))
@@ -165,17 +167,11 @@ struct Login: View {
     
     var signUpButton: some View {
         NavigationLink {
-            Signup(showing: $showing)
+            Signup(showing: $showing, selected: $selected)
                 .navigationBarHidden(true)
         } label: {
             Text("Sign up.")
         }
         
-    }
-}
-
-struct Login_Previews: PreviewProvider {
-    static var previews: some View {
-        Login(showing: .constant(.login))
     }
 }

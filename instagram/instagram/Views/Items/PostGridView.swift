@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct PostGridView: View {
-    var posts = UsersExample.all.flatMap { user in
-        user.posts
+    @ObservedObject var viewModel = FeedViewModel()
+    
+    var userPosts: [UserPost] {
+        viewModel.userPostPairs
     }
+    
     private let items = [GridItem(), GridItem(), GridItem()]
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: items, spacing: screen.minDim / 250) {
-                ForEach(posts) { post in
+                ForEach(userPosts) { userPost in
                     NavigationLink {
                         FeedView()
                     } label: {
-                        Labels.postGridLabelExample(for: post, withScaling: 3)
+                        Labels.postGridLabel(for: userPost.post, withScaling: 3)
                     }
                     .navigationBarTitleDisplayMode(.inline)
                 }

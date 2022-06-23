@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         Group {
             if viewModel.userSession == nil {
-                Opening()
+                Opening(selected: $selected)
             } else {
                 if let user = viewModel.user {
                     HomeTabView(selected: $selected, user: user)

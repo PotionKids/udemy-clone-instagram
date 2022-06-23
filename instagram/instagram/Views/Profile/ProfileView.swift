@@ -31,7 +31,7 @@ struct ProfileView: View {
                 .padding(.horizontal, screen.minDim / 30)
                 .padding(.vertical, screen.minDim / 50)
                 DisplayButtons()
-                PostGridView(posts: user.posts)
+                PostGridView()
                     .offset(y: 30)
                     .frame(maxWidth: screen.width)
                 Spacer()

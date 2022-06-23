@@ -10,6 +10,7 @@ import SwiftUI
 import Firebase
 
 class PostViewModel: ObservableObject {
+    var posts: [Post] = []
     
     func post(withCaption caption: String, AndImage image: UIImage, completion: FirestoreCompletion?) {
         guard let user = AuthViewModel.shared.user else { return }
@@ -25,7 +26,8 @@ class PostViewModel: ObservableObject {
                 Constants.timestamp: Timestamp(date: Date())
             ] as [String : Any]
             
-            Constants.collectionPosts.addDocument(data: data, completion: completion)
+            Constants.collectionPosts.document(user.id ?? "").collection(Constants.userPosts).addDocument(data: data, completion: completion)
+//            Constants.collectionPosts.addDocument(data: data, completion: completion)
         }
     }
 }

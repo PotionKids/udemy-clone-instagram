@@ -21,7 +21,7 @@ class SearchViewModel: ObservableObject {
                 return
             }
             self.users = documents.compactMap { try? $0.data(as: User.self) }
-            print("DEBUG: SUCCESS: Users Fetched: \(self.users)")
+//            print("DEBUG: SUCCESS: Users Fetched: \(self.users)")
         }
     }
     

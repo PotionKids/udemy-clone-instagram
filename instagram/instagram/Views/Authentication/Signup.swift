@@ -19,6 +19,7 @@ struct Signup: View {
     @State var showPicker = false
     
     @Binding var showing: LandingScreen
+    @Binding var selected: Tab
     
     @EnvironmentObject var viewModel: AuthViewModel
     
@@ -118,6 +119,7 @@ struct Signup: View {
                 password: password,
                 image: selectedImage
             )
+            selected = .profile
         } label: {
             Text("Next")
                 .font(.title3.weight(.medium))
@@ -152,7 +154,7 @@ struct Signup: View {
     
     var loginButton: some View {
         NavigationLink {
-            Login(showing: $showing)
+            Login(showing: $showing, selected: $selected)
                 .navigationBarHidden(true)
         } label: {
             Text("Log in.")
@@ -165,11 +167,5 @@ extension Signup {
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
         image = Image(uiImage: selectedImage)
-    }
-}
-
-struct Register_Previews: PreviewProvider {
-    static var previews: some View {
-        Signup(showing: .constant(.signup))
     }
 }

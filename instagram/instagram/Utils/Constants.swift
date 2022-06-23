@@ -10,6 +10,12 @@ import Foundation
 import Firebase
 
 struct Constants {
+    static let space = " "
+    static let colon = ":"
+    static let DEBUG = "DEBUG"
+    static let SUCESS = "SUCCESS"
+    static let FAILURE = "FAILURE"
+    
     static let screen = UIScreen.main.bounds
     static let screenWidth = screen.width
     static let screenHeight = screen.height
@@ -57,6 +63,7 @@ struct Constants {
     static let imageURL = "imageURL"
     static let likes = "likes"
     static let posts = "posts"
+    static let userPosts = "user-posts"
     
     
     static let collectionUsers = Firestore.firestore().collection(users)

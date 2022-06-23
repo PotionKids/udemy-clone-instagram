@@ -163,18 +163,38 @@ struct Labels {
     
     
     
-    static func postDescriptionLabel(for user: UserExample, andPost post: PostExample) -> some View {
+    static func postDescriptionLabelExample(for user: UserExample, andPost post: PostExample) -> some View {
         Text("**\(user.name)** \(post.description)")
             .font(.system(size: 18, weight: .regular))
             .padding([.top, .leading, .trailing], screen.width / 25)
     }
     
-    static func postTimePassedLabel(for user: UserExample, andPost post: PostExample) -> some View {
+    static func postDescriptionLabel(for user: User, andPost post: Post) -> some View {
+        Text("**\(user.username)** \(post.caption)")
+            .font(.system(size: 18, weight: .regular))
+            .padding([.top, .leading, .trailing], screen.width / 25)
+    }
+    
+    
+    
+    
+    
+    static func postTimePassedLabelExample(for user: UserExample, andPost post: PostExample) -> some View {
         Text("2d")
             .font(.system(size: 17))
             .foregroundColor(.gray)
             .padding([.leading, .trailing, .bottom], screen.width / 25)
     }
+    
+    static func postTimePassedLabel(_ post: Post) -> some View {
+        Text("2d")
+            .font(.system(size: 17))
+            .foregroundColor(.gray)
+            .padding([.leading, .trailing, .bottom], screen.width / 25)
+    }
+    
+    
+    
     
     
     static func profilePicExample(for user: UserExample, withScaling scaling: CGFloat) -> some View {
@@ -266,16 +286,37 @@ struct Labels {
             .scale(by: scaling)
     }
     
+    static func squareImageLabelRemote(for imageURL: String, withScaling scaling: CGFloat) -> some View {
+        KFImage(URL(string: imageURL)!)
+            .fitToAspectRatio(1)
+            .padding(.all, Constants.screen.minDim / 200)
+            .scale(by: scaling)
+    }
+    
+    
+    
     static func postContentLabelExample(for post: PostExample) -> some View {
         imageLabel(for: post.image)
             .frame(maxWidth: screen.width)
     }
+    
+    static func postContentLabel(for post: Post) -> some View {
+        KFImage(URL(string: post.imageURL)!)
+            .frame(maxWidth: screen.width)
+    }
+    
     
     
     
     static func postGridLabelExample(for post: PostExample, withScaling scaling: CGFloat) -> some View {
         return squareImageLabel(for: post.image, withScaling: 3)
     }
+    
+    static func postGridLabel(for post: Post, withScaling scaling: CGFloat) -> some View {
+        return squareImageLabelRemote(for: post.imageURL, withScaling: 3)
+    }
+    
+    
     
     static func followButtonLabel(if isFollowed: Bool) -> some View {
         let height = screen.minDim / 20

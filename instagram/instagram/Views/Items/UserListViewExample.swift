@@ -14,7 +14,7 @@ struct UserListViewExample: View {
         LazyVStack(spacing: screen.minDim / 30) {
             ForEach(users) { user in
                 NavigationLink {
-                    FeedView()
+                    FeedViewExample()
                 } label: {
                     UserCellExample(user: user)
                         .padding(.horizontal)
