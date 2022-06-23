@@ -9,6 +9,8 @@ import SwiftUI
 import Foundation
 import UIKit
 
+typealias FirestoreCompletion = ((Error?) -> Void)
+
 extension View {
     var screen: CGRect {
         UIScreen.main.bounds

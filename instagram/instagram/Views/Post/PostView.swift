@@ -7,12 +7,15 @@
 
 import SwiftUI
 
-struct UploadView: View {
+struct PostView: View {
     var imageName = "KH Profile Pic"
     @State var selectedImage: UIImage?
     @State var postImage: Image?
     @State var caption = ""
     @State var showPicker = false
+    
+    @Binding var selected: Tab
+    @ObservedObject var postViewModel = PostViewModel()
     
     var body: some View {
         if let image = postImage {
@@ -52,7 +55,13 @@ struct UploadView: View {
     }
     var postButton: some View {
         Button  {
-            //
+            if let image = selectedImage {
+                postViewModel.post(withCaption: caption, AndImage: image) { _ in
+                    caption = ""
+                    postImage = nil
+                    selected = .home
+                }
+            }
         } label: {
             Text("Post")
                 .font(.body.weight(.medium))
@@ -74,15 +83,9 @@ struct UploadView: View {
     }
 }
 
-extension UploadView {
+extension PostView {
     func loadImage() {
         guard let image = selectedImage else { return }
         postImage = Image(uiImage: image)
-    }
-}
-
-struct UploadView_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadView()
     }
 }

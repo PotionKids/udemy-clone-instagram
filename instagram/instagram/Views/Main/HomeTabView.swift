@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeTabView: View {
     @EnvironmentObject var viewModel: AuthViewModel
-    @State private var selected: Tab = .home
+    @Binding var selected: Tab
     var user: User
     
     var body: some View {
@@ -25,7 +25,7 @@ struct HomeTabView: View {
                         Image(systemName: "magnifyingglass")
                     }
                     .tag(Tab.search)
-                UploadView()
+                PostView(selected: $selected)
                     .tabItem {
                         Image(systemName: "plus.app.fill")
                     }
