@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ProfileHeader: View {
-    @ObservedObject var viewModel: ProfileViewModel
+//    @ObservedObject var viewModel: ProfileViewModel
+    @ObservedObject var viewModel: ProfileViewModelAsyncAwait
     
     var body: some View {
         HStack {

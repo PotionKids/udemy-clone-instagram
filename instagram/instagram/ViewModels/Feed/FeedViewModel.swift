@@ -7,47 +7,57 @@
 
 import Foundation
 
+typealias Feed = [String: [Post]]
+
 class FeedViewModel: ObservableObject {
-    @Published var feed: [String: [Post]] = [:]
+    @Published var feed: Feed = [:]
     @Published var following: [String] = []
     
     var current: User? {
         AuthViewModel.shared.user
     }
     
-    var userPostPairs: [UserPost] {
+    var userPostPairs: [UserPost] = []
+    
+    init() {
+        fetchFeed()
+        print(LOGGING.DEBUG.SUCCESS.log(message: "User Post Pairs are : \(userPostPairs)"))
+    }
+    
+    func fetchFeed() {
+        UserService.fetch(followingForUserID: current?.id ?? "") { followingIDs in
+            self.fetch(postsForUserIDs: followingIDs) { feed in
+                self.feed = feed
+                print(LOGGING.DEBUG.SUCCESS.log(message: "Feed is: \(self.feed)"))
+                self.fetchUserPostPairs(for: self.feed) { pairs in
+                    self.userPostPairs = pairs
+                }
+            }
+        }
+    }
+    
+    func fetch(postsForUserIDs uids: [String], completion: @escaping ([String : [Post]]) -> Void) {
+        for uid in uids {
+            UserService.fetch(postsForUserID: uid) { posts in
+                self.feed[uid] = posts
+//                print(LOGGING.DEBUG.SUCCESS.log(message: "Posts inside UserService fetch postsForUserIDs: \(posts)"))
+//                print(LOGGING.DEBUG.SUCCESS.log(message: "Feed inside UserService fetch postsForUserIDs: \(self.feed)"))
+                print(LOGGING.DEBUG.SUCCESS.log(message: "Feed inside FeedViewModel is: \(self.feed)"))
+            }
+            completion(feed)
+        }
+    }
+
+    
+    func fetchUserPostPairs(for feed: Feed, completion: @escaping ([UserPost]) -> Void) {
         var pairs = [UserPost]()
         for (uid, posts) in feed {
             UserService.fetch(userWithID: uid) { user in
                 pairs += posts.map { UserPost(user: user, post: $0) }
             }
         }
-        return pairs
-    }
-    
-    init() {
-        fetchFollowing()
-        fetchFeed()
-    }
-    
-    func fetchFollowing() {
-        guard let user = current,
-              let uid = user.id
-        else { return }
-        UserService.fetch(followingForUserID: uid) { followingIDs in
-//            print(LOGGING.DEBUG.SUCCESS.log(message: "Following IDs: \(followingIDs)"))
-            self.following = followingIDs
-            print(LOGGING.DEBUG.SUCCESS.log(message: "Following IDs: \(self.following)"))
-        }
-    }
-    
-    func fetchFeed() {
-        for uid in self.following {
-            UserService.fetch(postsForUserID: uid) { posts in
-                self.feed[uid] = posts
-                print(LOGGING.DEBUG.SUCCESS.log(message: "feed posts for followingID: \(uid) are : \(posts)"))
-            }
-        }
+        print(LOGGING.DEBUG.SUCCESS.log(message: "UserPost pairs: \(pairs)"))
+        completion(pairs)
     }
 }
 

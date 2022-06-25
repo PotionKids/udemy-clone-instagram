@@ -78,6 +78,7 @@ struct UserService {
     }
     
     static func fetch(postsForUserID uid: String, completion: @escaping ([Post]) -> Void) {
+        print(LOGGING.DEBUG.SUCCESS.log(message: "Fetching posts for user id: \(uid)"))
         var posts = [Post]()
         Constants.collectionPosts
             .document(uid)
@@ -89,7 +90,22 @@ struct UserService {
                 }
                 print(LOGGING.DEBUG.SUCCESS.log(message: "Fetched posts for user with id: \(uid)"))
                 posts = documents.compactMap {try? $0.data(as: Post.self)}
+                print(LOGGING.DEBUG.SUCCESS.log(message: "Posts for user with id: \(uid) are : \(posts)"))
                 completion(posts)
             }
+    }
+    
+    static func fetch(postsForUserIDs uids: [String], completion: @escaping ([String : [Post]]) -> Void) {
+        var feed: [String: [Post]] = [:]
+        for uid in uids {
+            UserService.fetch(postsForUserID: uid) { posts in
+                feed[uid] = posts
+                print(LOGGING.DEBUG.SUCCESS.log(message: "Posts inside UserService fetch postsForUserIDs: \(posts)"))
+                print(LOGGING.DEBUG.SUCCESS.log(message: "Feed inside UserService fetch postsForUserIDs: \(feed)"))
+            }
+            
+            print(LOGGING.DEBUG.SUCCESS.log(message: "Feed inside UserService is: \(feed)"))
+            completion(feed)
+        }
     }
 }

@@ -42,6 +42,8 @@
 		EE9C0D09285F76E3004E5FFF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EE9C0D08285F76E3004E5FFF /* FirebaseStorage */; };
 		EE9C0D0C285F7DD6004E5FFF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EE9C0D0B285F7DD6004E5FFF /* Kingfisher */; };
 		EE9C0D0E285FA147004E5FFF /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9C0D0D285FA147004E5FFF /* PostViewModel.swift */; };
+		EE9FB6CE2867713200245FD1 /* UserServiceAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FB6CD2867713200245FD1 /* UserServiceAsyncAwait.swift */; };
+		EE9FB6D0286778B800245FD1 /* ProfileViewModelAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9FB6CF286778B800245FD1 /* ProfileViewModelAsyncAwait.swift */; };
 		EEA341D12860F31D008B4BD8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA341D02860F31D008B4BD8 /* Post.swift */; };
 		EEA341D32860F969008B4BD8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA341D22860F969008B4BD8 /* FeedViewModel.swift */; };
 		EEB1BF97285CD9A400DA6683 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB1BF96285CD9A400DA6683 /* ProfileView.swift */; };
@@ -107,6 +109,8 @@
 		EE99C0CD28500FAB00426F6C /* UserListViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewExample.swift; sourceTree = "<group>"; };
 		EE9C0CF7285F762D004E5FFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE9C0D0D285FA147004E5FFF /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		EE9FB6CD2867713200245FD1 /* UserServiceAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceAsyncAwait.swift; sourceTree = "<group>"; };
+		EE9FB6CF286778B800245FD1 /* ProfileViewModelAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelAsyncAwait.swift; sourceTree = "<group>"; };
 		EEA341D02860F31D008B4BD8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		EEA341D22860F969008B4BD8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		EEB1BF96285CD9A400DA6683 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -265,6 +269,7 @@
 				EE11EF02285A28AF00E3D6A7 /* ImageUploader.swift */,
 				EEC08CF1285E440E007A1069 /* UserService.swift */,
 				EE8C69F2286239FB004CD358 /* PostService.swift */,
+				EE9FB6CD2867713200245FD1 /* UserServiceAsyncAwait.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				EEB1BF9C285D334100DA6683 /* ProfileViewModel.swift */,
+				EE9FB6CF286778B800245FD1 /* ProfileViewModelAsyncAwait.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 				EEC86B1C2852B52400F46820 /* StoryView.swift in Sources */,
 				EEC86B262852C41700F46820 /* DisplayButtons.swift in Sources */,
 				EE47C1C3285B59EF00D33B2F /* SearchViewModel.swift in Sources */,
+				EE9FB6D0286778B800245FD1 /* ProfileViewModelAsyncAwait.swift in Sources */,
 				EEBA25F0285426F5002F4E2F /* Signup.swift in Sources */,
 				EEE87A89284F6DD40043F019 /* FeedViewExample.swift in Sources */,
 				EEBA25EE285426E2002F4E2F /* Landing.swift in Sources */,
@@ -546,6 +553,7 @@
 				EEA341D32860F969008B4BD8 /* FeedViewModel.swift in Sources */,
 				EE3D4741285BE0AE00079CA9 /* SearchView.swift in Sources */,
 				EE8C69F3286239FB004CD358 /* PostService.swift in Sources */,
+				EE9FB6CE2867713200245FD1 /* UserServiceAsyncAwait.swift in Sources */,
 				EEC86B242852C15100F46820 /* StoriesExample.swift in Sources */,
 				EEC86B1A2852A70E00F46820 /* ViewModifiers.swift in Sources */,
 				EEC86B202852B57C00F46820 /* UserStatView.swift in Sources */,

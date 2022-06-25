@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ProfileButtons: View {
-    @ObservedObject var viewModel: ProfileViewModel
+//    @ObservedObject var viewModel: ProfileViewModel
+    @ObservedObject var viewModel: ProfileViewModelAsyncAwait
     var isFollowedByCurrentUser: Bool {
         viewModel.user.isFollowed ?? false
     }
