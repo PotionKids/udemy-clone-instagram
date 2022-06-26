@@ -1,16 +1,14 @@
 //
-//  ProfileViewModelAsyncAwait.swift
+//  ProfileViewModel.swift
 //  instagram
 //
-//  Created by Krishnaswami Rajendren on 6/25/22.
+//  Created by Krishnaswami Rajendren on 6/18/22.
 //
 
 import Foundation
 
-class ProfileViewModel: ObservableObject {
+class ProfileViewModelOld: ObservableObject {
     @Published var user: User
-    
-    
     var current: User? {
         AuthViewModel.shared.user
     }
@@ -29,23 +27,21 @@ class ProfileViewModel: ObservableObject {
     }
     
     func follow() {
-        Task {
-            try await UserServiceAsyncAwait.follow(followedUID, by: currentUID)
+        UserService.follow(followedUID, by: currentUID) { _ in
+            self.user.isFollowed = true
         }
-        self.user.isFollowed = true
     }
     
     func unfollow() {
-        Task {
-            try await UserServiceAsyncAwait.unfollow(followedUID, by: currentUID)
+        UserService.unfollow(followedUID, by: currentUID) { _ in
+            self.user.isFollowed = false
         }
-        self.user.isFollowed = false
     }
     
     func checkIfFollowed() {
         guard !user.isCurrent else { return }
-        Task {
-            self.user.isFollowed = try await UserServiceAsyncAwait.checkIfFollowed(followedUID, by: currentUID)
+        UserService.checkIfFollowed(followedUID, by: currentUID) { isFollowed in
+            self.user.isFollowed = isFollowed
         }
     }
 }

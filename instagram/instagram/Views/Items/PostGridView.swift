@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PostGridView: View {
-    @ObservedObject var viewModel = FeedViewModel()
+//    @ObservedObject var viewModel = FeedViewModel()
+    @ObservedObject var viewModel = FeedViewModelAsyncAwait()
     
     var userPosts: [UserPost] {
         viewModel.userPostPairs
@@ -21,7 +22,7 @@ struct PostGridView: View {
             LazyVGrid(columns: items, spacing: screen.minDim / 250) {
                 ForEach(userPosts) { userPost in
                     NavigationLink {
-                        FeedView()
+                        ProfileView(user: userPost.user)
                     } label: {
                         Labels.postGridLabel(for: userPost.post, withScaling: 3)
                     }
@@ -32,8 +33,8 @@ struct PostGridView: View {
     }
 }
 
-struct PostGridView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostGridView()
-    }
-}
+//struct PostGridView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PostGridView()
+//    }
+//}

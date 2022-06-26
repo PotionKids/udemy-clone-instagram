@@ -53,6 +53,23 @@ struct UserServiceAsyncAwait {
         return try snapshot.data(as: User.self)
     }
     
+    static func fetch(usersWithIDs uids: [String]) async throws -> [String: User] {
+        var users = [String : User]()
+        try await withThrowingTaskGroup(of: [String : User].self) { group in
+            for uid in uids {
+                group.addTask {
+                    return [uid : try await self.fetch(userWithID: uid)]
+                }
+            }
+            for try await d in group {
+                users.merge(d) { cur, _ in cur }
+            }
+        }
+        return users
+    }
+    
+    
+    
     static func fetch(followingForUserID uid: String) async throws -> [String] {
         let snapshot = try await Constants.collectionFollowing
             .document(uid)
@@ -69,6 +86,21 @@ struct UserServiceAsyncAwait {
             .getDocuments()
         
         return try snapshot.documents.compactMap {try $0.data(as: Post.self)}
+    }
+    
+    static func fetch(postsForUserIDs uids: [String]) async throws -> Feed {
+        var feed: [String: [Post]] = [:]
+        try await withThrowingTaskGroup(of: Feed.self) { group in
+            for uid in uids {
+                group.addTask {
+                    return [uid: try await UserServiceAsyncAwait.fetch(postsForUserID: uid)]
+                }
+            }
+            for try await d in group {
+                feed.merge(d) { cur, _ in cur }
+            }
+        }
+        return feed
     }
 }
 

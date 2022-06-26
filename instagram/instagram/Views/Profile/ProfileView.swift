@@ -9,14 +9,12 @@ import SwiftUI
 
 struct ProfileView: View {
     var user: User
-//    @ObservedObject var viewModel: ProfileViewModel
-    @ObservedObject var viewModel: ProfileViewModelAsyncAwait
+    @ObservedObject var viewModel: ProfileViewModel
     @State private var isFollowedByCurrentUser = false
     
     init(user: User) {
         self.user = user
-//        self.viewModel = ProfileViewModel(user: user)
-        self.viewModel = ProfileViewModelAsyncAwait(user: user)
+        self.viewModel = ProfileViewModel(user: user)
     }
     
     var body: some View {

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct FeedView: View {
-    @ObservedObject var viewModel = FeedViewModel()
+//    @ObservedObject var viewModel = FeedViewModel()
+    @ObservedObject var viewModel = FeedViewModelAsyncAwait()
     
     var body: some View {
         ScrollView {

@@ -61,14 +61,14 @@ class FeedViewModel: ObservableObject {
     }
 }
 
-struct UserPost: Identifiable {
-    var id: String
-    var user: User
-    var post: Post
-    
-    init(user: User, post: Post) {
-        self.user = user
-        self.post = post
-        self.id = user.id! + post.id!
-    }
-}
+//struct UserPost: Identifiable {
+//    var id: String
+//    var user: User
+//    var post: Post
+//    
+//    init(user: User, post: Post) {
+//        self.user = user
+//        self.post = post
+//        self.id = user.id! + post.id!
+//    }
+//}
