@@ -33,7 +33,7 @@ class FeedViewModelAsyncAwait: ObservableObject {
     }
     
     func fetchFollowingIDs() async throws -> [String] {
-        return try await UserServiceAsyncAwait.fetch(followingForUserID: currentUID)
+        return try await UserServiceAsyncAwait.fetch(followeesForUserID: currentUID)
     }
     
     func fetchFollowing() async throws -> [String : User] {
@@ -41,7 +41,7 @@ class FeedViewModelAsyncAwait: ObservableObject {
     }
     
     func fetchFeed() async throws -> Feed {
-        let followingIDs = try await UserServiceAsyncAwait.fetch(followingForUserID: currentUID)
+        let followingIDs = try await UserServiceAsyncAwait.fetch(followeesForUserID: currentUID)
         return try await UserServiceAsyncAwait.fetch(postsForUserIDs: followingIDs)
     }
 }
@@ -59,7 +59,8 @@ struct UserPost: Identifiable {
     
     static func createPairs(from users: [String : User], andFeed feed: Feed) -> [(User, Post)] {
         users.keys.reduce([(User, Post)]()) { pairs, uid in
-            return pairs + feed[uid]!.map {(users[uid]!, $0)}
+            guard let fetchedFeed = feed[uid] else { return [] }
+            return pairs + fetchedFeed.map {(users[uid]!, $0)}
         }
     }
     

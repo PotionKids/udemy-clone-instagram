@@ -12,39 +12,39 @@ import FirebaseFirestoreSwift
 
 struct UserServiceAsyncAwait {
     
-    static func follow(_ followed: String, by current: String) async throws {
+    static func follow(_ followee: String, by current: String) async throws {
         try await Constants.collectionFollowing
             .document(current)
             .collection(Constants.userFollowing)
-            .document(followed)
+            .document(followee)
             .setData([:])
         
         try await Constants.collectionFollowers
-            .document(followed)
+            .document(followee)
             .collection(Constants.userFollowers)
             .document(current)
             .setData([:])
     }
     
-    static func unfollow(_ followed: String, by current: String) async throws {
+    static func unfollow(_ followee: String, by current: String) async throws {
         try await Constants.collectionFollowing
             .document(current)
             .collection(Constants.userFollowing)
-            .document(followed)
+            .document(followee)
             .delete()
         
         try await Constants.collectionFollowers
-            .document(followed)
+            .document(followee)
             .collection(Constants.userFollowers)
             .document(current)
             .delete()
     }
     
-    static func checkIfFollowed(_ followed: String, by current: String) async throws -> Bool {
+    static func checkIfFollowed(_ followee: String, by current: String) async throws -> Bool {
         try await Constants.collectionFollowing
             .document(current)
             .collection(Constants.userFollowing)
-            .document(followed)
+            .document(followee)
             .getDocument().exists
     }
     
@@ -70,7 +70,7 @@ struct UserServiceAsyncAwait {
     
     
     
-    static func fetch(followingForUserID uid: String) async throws -> [String] {
+    static func fetch(followeesForUserID uid: String) async throws -> [String] {
         let snapshot = try await Constants.collectionFollowing
             .document(uid)
             .collection(Constants.userFollowing)
